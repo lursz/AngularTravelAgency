@@ -1,0 +1,123 @@
+[
+    {
+        "name": "Sunny Spanish Coast",
+        "country": "Spain",
+        "start_date": "2023-06-01",
+        "end_date": "2023-06-08",
+        "price": 1000,
+        "currency": "EUR-CENT",
+        "max_participants": 20,
+        "description": "Take a break from everyday hustle and bustle and join us on a trip to the sunny Spanish coast. We will visit the most beautiful beaches and enjoy the thrill of the local nightlife.",
+        "picture": "#"
+    },
+    {
+        "name": "Magnificent Norwegian Fjords",
+        "country": "Norway",
+        "start_date": "2023-07-01",
+        "end_date": "2023-07-08",
+        "price": 1500,
+        "currency": "EUR-CENT",
+        "max_participants": 20,
+        "description": "Join us on a trip to the magnificent Norwegian fjords. Enjoy the breathtaking views and the fresh air of the Norwegian mountains.",
+        "picture": "#"
+    },
+    {
+        "name": "Beautiful Greek Islands",
+        "country": "Greece",
+        "start_date": "2023-08-01",
+        "end_date": "2023-08-08",
+        "price": 2000,
+        "currency": "EUR-CENT",
+        "max_participants": 20,
+        "description": "Join us on a trip to the beautiful Greek islands. Enjoy the sun, the sea and the local cuisine.",
+        "picture": "#"
+    },
+    {
+        "name": "Amazing Italian Lakes",
+        "country": "Italy",
+        "start_date": "2023-09-01",
+        "end_date": "2023-09-08",
+        "price": 2500,
+        "currency": "EUR-CENT",
+        "max_participants": 20,
+        "description": "Join us on a trip to the amazing Italian lakes. Enjoy the breathtaking views and the fresh air of the Italian mountains.",
+        "picture": "#"
+    },
+    {
+        "name": "Beautiful Croatian Coast",
+        "country": "Croatia",
+        "start_date": "2023-10-01",
+        "end_date": "2023-10-08",
+        "price": 3000,
+        "currency": "EUR-CENT",
+        "max_participants": 20,
+        "description": "Join us on a trip to the beautiful Croatian coast. Enjoy the Adriatic sea and scuba dive in the crystal clear waters.",
+        "picture": "#"
+    },
+    {
+        "name": "Stellar Icelandic Northern Lights",
+        "country": "Iceland",
+        "start_date": "2023-11-01",
+        "end_date": "2023-11-08",
+        "price": 3500,
+        "currency": "EUR-CENT",
+        "max_participants": 20,
+        "description": "Join us on a trip to the stellar Icelandic Northern Lights. Enjoy the hot water springs and the breathtaking views of the pristine Icelandic black beaches.",
+        "picture": "#"
+    },
+    {
+        "name": "Amazing Swiss Alps",
+        "country": "Switzerland",
+        "start_date": "2023-12-01",
+        "end_date": "2023-12-08",
+        "price": 4000,
+        "currency": "EUR-CENT",
+        "max_participants": 20,
+        "description": "Join us on a trip to the amazing Swiss Alps. Enjoy the stunning views and countless ski slopes.",
+        "picture": "#"
+    },
+    {
+        "name": "Life-changing African Safari",
+        "country": "Kenya",
+        "start_date": "2024-01-01",
+        "end_date": "2024-01-08",
+        "price": 4500,
+        "currency": "EUR-CENT",
+        "max_participants": 20,
+        "description": "Join us on a trip to the life-changing African Safari. Enjoy the presence of the majestic African wildlife and the stark flora of the African savannah.",
+        "picture": "#"
+    },
+    {
+        "name": "Amazing Australian Outback",
+        "country": "Australia",
+        "start_date": "2024-02-01",
+        "end_date": "2024-02-08",
+        "price": 5000,
+        "currency": "EUR-CENT",
+        "max_participants": 20,
+        "description": "Join us on a trip to the amazing Australian Outback. Enjoy the summer climate in the middle of the European winter and dive into unique Australian fauna.",
+        "picture": "#"
+    },
+    {
+        "name": "Amazing New Zealand",
+        "country": "New Zealand",
+        "start_date": "2024-03-01",
+        "end_date": "2024-03-08",
+        "price": 5500,
+        "currency": "EUR-CENT",
+        "max_participants": 20,
+        "description": "Join us on a trip to the amazing New Zealand. Enjoy the virgin nature and the unique flora and fauna of the New Zealand islands.",
+        "picture": "#"
+    },
+    {
+        "name": "Pulsating with life Amsterdam",
+        "country": "Netherlands",
+        "start_date": "2024-04-01",
+        "end_date": "2024-04-08",
+        "price": 6000,
+        "currency": "EUR-CENT",
+        "max_participants": 20,
+        "description": "Join us on a trip to the pulsating with life Amsterdam. Prepare to embrace to vivid nightlife and smoke some weed in the local coffee shops.",
+        "picture": "#"
+    }
+]
