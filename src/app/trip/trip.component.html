@@ -1,9 +1,46 @@
-<div>
-    <h1> {{ trip.name }} </h1>
-    <h3> {{ trip.country }} </h3>
-    <p> {{ trip.price }}</p>
-    <p> {{ trip.description }}</p>
-    <p> {{ trip.start_date }}</p>
-    <p> {{ trip.end_date }}</p>
-    <p> {{ trip.max_participants }}</p>
-</div>
+<div class="container">
+    <!-- Img -->
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <img [src]="trip.picture" alt="trip image" class="trip-img rounded-circle img-fluid">
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="row mt-4">
+      <div class="col-md-12 text-center">
+        <h1>{{ trip.name }}</h1>
+        <h3>{{ trip.country }}</h3>
+        <p>€ {{ trip.price }}</p>
+        <p>{{ trip.description }}</p>
+      </div>
+    </div>
+
+    <!-- Date -->
+    <div class="row mt-4">
+      <div class="col-md-6 text-center">
+        <p>Start Date: {{ trip.start_date }}</p>
+      </div>
+      <div class="col-md-6 text-center">
+        <p>End Date: {{ trip.end_date }}</p>
+      </div>
+    </div>
+
+    <!-- Max Participants -->
+    <div class="row mt-4">
+      <div class="col-md-12 text-center">
+        <p>Max Participants: {{ trip.max_participants }}</p>
+      </div>
+    </div>
+
+    <!-- Reservation buttons-->
+    <div class="row mt-4">
+      <div class="col-md-12 text-center">
+        <button class="btn btn-primary" (click)="addReservedCount()">+</button>
+        {{ tripProperties?.reservedCount }}
+        <button class="btn btn-primary" (click)="subtractReservedCount()">-</button>
+        <button class="btn btn-danger" (click)="hideOrShowTrip(false)">Reset</button>
+      </div>
+
+  </div>
+  

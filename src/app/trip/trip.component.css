@@ -1,0 +1,6 @@
+.trip-img {
+    --size: 20rem;
+    width: var(--size);
+    height: var(--size);
+    object-fit: cover;
+}
