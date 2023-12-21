@@ -4,3 +4,11 @@
     height: var(--size);
     object-fit: cover;
 }
+
+.cheapestTrip {
+    border: 2px solid green;
+}
+
+.mostExpensiveTrip {
+    border: 2px solid red;
+}

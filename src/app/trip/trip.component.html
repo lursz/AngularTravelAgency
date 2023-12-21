@@ -1,4 +1,6 @@
-<div class="container">
+<div *ngIf="tripProperties.display">
+  <div class="container">
+  <button class="btn btn-danger" (click)="removeTrip()">X</button>
     <!-- Img -->
     <div class="row">
       <div class="col-md-12 text-center">
@@ -26,21 +28,23 @@
       </div>
     </div>
 
-    <!-- Max Participants -->
+    <!-- Max Participants and reserved spots-->
     <div class="row mt-4">
-      <div class="col-md-12 text-center">
+      <div class="col-md-6 text-center">
         <p>Max Participants: {{ trip.max_participants }}</p>
       </div>
+      <div class="col-md-6 text-center">
+        <p>Reserved Spots: {{ tripProperties.reservedCount }}</p>
     </div>
 
     <!-- Reservation buttons-->
     <div class="row mt-4">
       <div class="col-md-12 text-center">
-        <button class="btn btn-primary" (click)="addReservedCount()">+</button>
-        {{ tripProperties?.reservedCount }}
-        <button class="btn btn-primary" (click)="subtractReservedCount()">-</button>
-        <button class="btn btn-danger" (click)="hideOrShowTrip(false)">Reset</button>
+        <div *ngIf="tripProperties.reservedCount < trip.max_participants">
+          <button class="btn btn-primary" (click)="addReservedCount()">+</button>
+        </div>
+          <button class="btn btn-primary" (click)="subtractReservedCount()">-</button>
       </div>
-
+    </div>
   </div>
   

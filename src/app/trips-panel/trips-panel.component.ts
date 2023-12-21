@@ -19,6 +19,13 @@ export class TripsPanelComponent {
     trips: Trip[] = [];
     tripsMap: Map<number, TripCountingState> = new Map<number, TripCountingState>();
 
+    safeGetMapValue(Map: Map<number, TripCountingState>, key: number): TripCountingState {
+        let value = Map.get(key);
+        if (value)
+            return value;
+        return new TripCountingState(0, undefined, undefined);
+    }
+
     init(service: TripImporterService){
         this.trips = this.service.getTrips();
         for (let i = 0; i < this.trips.length; i++) {
@@ -35,17 +42,29 @@ export class TripsPanelComponent {
     }
 
 
+    /* -------------------------------- Functions ------------------------------- */
+
+    removeTrip(tripId: number) {
+        console.log(tripId);
+        this.trips.splice(tripId, 1);
+        this.tripsMap.delete(tripId);
+    }
 
     findTopPrice(){
-        let keys = Array.from(this.tripsMap.keys());
-        let topPrice = Math.max(...keys);
-        let tripCountingState = this.tripsMap.get(topPrice);
-        if (tripCountingState) {
-          tripCountingState.highestPrice = true;
-        } else {
-          this.tripsMap.set(topPrice, new TripCountingState(0, undefined, true));
-        }
-        console.log("topPrice: " + topPrice);
+        let topPrice = 0;
+        this.trips.forEach(trip => {
+            if (trip.price > topPrice)
+                topPrice = trip.price;
+        });
+        this.trips.forEach(trip => {
+            if (trip.price == topPrice) {
+                const tripCountingState = this.tripsMap.get(trip.id);
+                if (tripCountingState) {
+                    tripCountingState.highestPrice = true;
+                    console.log(tripCountingState.highestPrice)
+                }
+            }
+        });
     }
 
 

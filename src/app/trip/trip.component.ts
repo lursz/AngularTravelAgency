@@ -1,31 +1,33 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Trip } from './trip_interface';
 import { TripCountingState } from '../trips-panel/trip-counting.service';
 
 @Component({
   selector: 'app-trip',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './trip.component.html',
   styleUrl: './trip.component.css'
 })
 export class TripComponent {
   @Input() trip!: Trip;
-  @Input() tripProperties!:TripCountingState | undefined; 
+  @Input() tripProperties!:TripCountingState; 
+  @Output() removeTripEvent = new EventEmitter<number>();
 
   addReservedCount() {
-    if (this.tripProperties) {
+    if (this.trip.max_participants >= this.tripProperties.reservedCount) {
       this.tripProperties.reservedCount++;
     }
+    
   }
   subtractReservedCount() {
-    if (this.tripProperties) {
+    if (this.tripProperties.reservedCount > 0)
       this.tripProperties.reservedCount--;
-    }
   }
-  hideOrShowTrip(display: boolean) {
-    if (this.tripProperties) {
-      this.tripProperties.display = display;
-    }
+
+
+  removeTrip() {
+    this.removeTripEvent.emit();
   }
 }
