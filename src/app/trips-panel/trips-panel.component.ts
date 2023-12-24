@@ -4,7 +4,7 @@ import { TripImporterService } from '../trip-importer.service';
 import { TripComponent } from "../trip/trip.component";
 import { Trip } from '../trip/trip_interface';
 import { TripCountingState } from './trip-counting.service';
-import { find } from 'rxjs';
+import { find, max } from 'rxjs';
 
 @Component({
     selector: 'app-trips-panel',
@@ -26,11 +26,13 @@ export class TripsPanelComponent {
         return new TripCountingState(0, undefined, undefined);
     }
 
-    init(service: TripImporterService){
+    init(service: TripImporterService) {
         this.trips = this.service.getTrips();
         for (let i = 0; i < this.trips.length; i++) {
             this.tripsMap.set(i, new TripCountingState(0, undefined, undefined));
         }
+        this.getMostExpensiveTrip();
+        this.getCheapestTrip();
     }
     constructor(service: TripImporterService) {
         this.service = service;
@@ -38,40 +40,39 @@ export class TripsPanelComponent {
             this.init(service);
         });
         this.init(service);
-        this.findTopPrice();
     }
 
 
-    /* -------------------------------- Functions ------------------------------- */
 
     removeTrip(tripId: number) {
-        console.log(tripId);
         this.trips.splice(tripId, 1);
         this.tripsMap.delete(tripId);
     }
 
-    findTopPrice(){
-        let topPrice = 0;
-        this.trips.forEach(trip => {
-            if (trip.price > topPrice)
-                topPrice = trip.price;
-        });
-        this.trips.forEach(trip => {
-            if (trip.price == topPrice) {
-                const tripCountingState = this.tripsMap.get(trip.id);
-                if (tripCountingState) {
-                    tripCountingState.highestPrice = true;
-                    console.log(tripCountingState.highestPrice)
-                }
+    getMostExpensiveTrip(): number {
+        let maxPrice = 0;
+        let maxPriceIndex = 0;
+        for (let i = 0; i < this.trips.length; i++) {
+            if (this.trips[i].price > maxPrice) {
+                maxPrice = this.trips[i].price;
+                maxPriceIndex = i;
             }
-        });
+        }
+        this.safeGetMapValue(this.tripsMap, maxPriceIndex).highestPrice = true;
+        return maxPriceIndex;
     }
 
+    getCheapestTrip(): number {
+        let minPrice = 0;
+        let minPriceIndex = 0;
+        for (let i = 0; i < this.trips.length; i++) {
+            if (this.trips[i].price < minPrice) {
+                minPrice = this.trips[i].price;
+                minPriceIndex = i;
+            }
+        }
+        this.safeGetMapValue(this.tripsMap, minPriceIndex).lowestPrice = true;
+        return minPriceIndex;
 
-
-    
-
-
+    }
 }
-
-

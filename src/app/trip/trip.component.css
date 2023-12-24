@@ -5,10 +5,14 @@
     object-fit: cover;
 }
 
-.cheapestTrip {
+.cheapest-trip {
     border: 2px solid green;
 }
 
-.mostExpensiveTrip {
+.most-expensive-trip {
     border: 2px solid red;
+}
+
+.almost-full{
+    background-color: lightcoral;
 }
