@@ -18,6 +18,8 @@ export class TripComponent {
   @Input() totalReservedTripsCounter!: number;
   @Output() removeTripEvent = new EventEmitter<number>();
 
+  TotalTripsCounter: TotalTripsCountService = new TotalTripsCountService;
+
   addReservedCount() {
     if (this.trip.max_participants >= this.tripProperties.reservedCount) {
       this.tripProperties.reservedCount++;

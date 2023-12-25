@@ -44,10 +44,10 @@
     <div class="row mt-4">
       <div class="col-md-12 text-center" >
         <div *ngIf="tripProperties.reservedCount < trip.max_participants">
-          <button class="btn btn-primary" (click)="TotalTripsCountService.incrementTotalReservedTripsCounter">+</button>
+          <button class="btn btn-primary" (click)="TotalTripsCounter.incrementTotalReservedTripsCounter()" (click)="addReservedCount">+</button>
         </div>
         <div *ngIf="tripProperties.reservedCount != 0">
-          <button class="btn btn-primary" (click)="subtractReservedCount()">-</button>
+          <button class="btn btn-primary" (click)="TotalTripsCounter.decrementTotalReservedTripsCounter()" (click)="subtractReservedCount">-</button>
       </div>
     </div>
   </div>
