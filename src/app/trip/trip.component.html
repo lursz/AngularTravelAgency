@@ -2,7 +2,7 @@
   <div class="container"
   [ngClass]="{'cheapestTrip': tripProperties.lowestPrice === true, 'mostExpensiveTrip': tripProperties.highestPrice, 'almost-full': trip.max_participants - tripProperties.reservedCount < 3}"
   >
-  <h3>{{totalReservedTripsCounter}}</h3>
+  <h3>{{TripCountingService.totalReservedTripsCounter}}</h3>
   <button class="btn btn-danger" (click)="removeTrip()">X</button>
     <!-- Img -->
     <div class="row">
@@ -44,10 +44,10 @@
     <div class="row mt-4">
       <div class="col-md-12 text-center" >
         <div *ngIf="tripProperties.reservedCount < trip.max_participants">
-          <button class="btn btn-primary" (click)="TotalTripsCounter.incrementTotalReservedTripsCounter()" (click)="addReservedCount">+</button>
+          <button class="btn btn-primary" (click)="addReservedCount()">+</button>
         </div>
         <div *ngIf="tripProperties.reservedCount != 0">
-          <button class="btn btn-primary" (click)="TotalTripsCounter.decrementTotalReservedTripsCounter()" (click)="subtractReservedCount">-</button>
+          <button class="btn btn-primary" (click)="subtractReservedCount()">-</button>
       </div>
     </div>
   </div>

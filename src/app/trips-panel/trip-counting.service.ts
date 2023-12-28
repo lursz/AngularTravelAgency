@@ -4,7 +4,18 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class TripCountingService {
+static totalReservedTripsCounter: number = 0;
 ratings: number[] = [1, 2, 3, 4, 5];
+
+
+static incrementTotalReservedTripsCounter() {
+  TripCountingService.totalReservedTripsCounter++;
+}
+
+static decrementTotalReservedTripsCounter() {
+ if (TripCountingService.totalReservedTripsCounter > 0)
+  TripCountingService.totalReservedTripsCounter--;
+}
 
 
 hideOrShowTrip(tripsMap: Map<number, TripCountingState>, tripId: number, display: boolean) {

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Trip } from './trip_interface';
-import { TripCountingState } from '../trips-panel/trip-counting.service';
+import { TripCountingService, TripCountingState } from '../trips-panel/trip-counting.service';
 import { TotalTripsCountService } from '../trips-panel/total-trips-count.service';
 
 @Component({
@@ -14,24 +14,24 @@ import { TotalTripsCountService } from '../trips-panel/total-trips-count.service
 })
 export class TripComponent {
   @Input() trip!: Trip;
-  @Input() tripProperties!:TripCountingState; 
-  @Input() totalReservedTripsCounter!: number;
+  @Input() tripProperties!: TripCountingState;
+  TripCountingService = TripCountingService
   @Output() removeTripEvent = new EventEmitter<number>();
 
-  TotalTripsCounter: TotalTripsCountService = new TotalTripsCountService;
+
 
   addReservedCount() {
     if (this.trip.max_participants >= this.tripProperties.reservedCount) {
       this.tripProperties.reservedCount++;
-      this.totalReservedTripsCounter++;
+      TripCountingService.incrementTotalReservedTripsCounter();
     }
-    
+
   }
   subtractReservedCount() {
-    if (this.tripProperties.reservedCount > 0)
-      {this.tripProperties.reservedCount--;
-      this.totalReservedTripsCounter--;
-      }
+    if (this.tripProperties.reservedCount > 0) {
+      this.tripProperties.reservedCount--;
+      TripCountingService.decrementTotalReservedTripsCounter();
+    }
   }
 
 
