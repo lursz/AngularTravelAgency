@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { TripImporterService } from '../trip-importer.service';
+import { TripImporterService } from '../Services/trip-importer.service';
 import { TripComponent } from "../trip/trip.component";
 import { Trip } from '../trip/trip_interface';
-import { TripCountingState } from './trip-counting.service';
+import { TripCountingState } from '../Services/trip-counting.service';
 import { find, max } from 'rxjs';
 
 @Component({
@@ -43,6 +43,12 @@ export class TripsPanelComponent {
     }
 
 
+    addTrip(trip: Trip) {
+        this.trips.push(trip);
+        this.tripsMap.set(this.trips.length - 1, new TripCountingState(0, undefined, undefined));
+        this.getMostExpensiveTrip();
+        this.getCheapestTrip();
+    }
 
     removeTrip(tripId: number) {
         this.trips.splice(tripId, 1);

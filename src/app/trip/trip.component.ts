@@ -1,14 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Trip } from './trip_interface';
-import { TripCountingService, TripCountingState } from '../trips-panel/trip-counting.service';
-import { TotalTripsCountService } from '../trips-panel/total-trips-count.service';
+import { TripCountingService, TripCountingState } from '../Services/trip-counting.service';
 
 @Component({
   selector: 'app-trip',
   standalone: true,
   imports: [CommonModule],
-  providers: [TotalTripsCountService],
+  providers: [],
   templateUrl: './trip.component.html',
   styleUrl: './trip.component.css'
 })

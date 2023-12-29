@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { Trip } from './trip/trip_interface';
+import { Trip } from '../trip/trip_interface';
 
 @Injectable({
   providedIn: 'root'

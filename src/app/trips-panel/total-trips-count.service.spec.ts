@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TotalTripsCountService } from './total-trips-count.service';
+import { TotalTripsCountService } from '../Services/total-trips-count.service';
 
 describe('TotalTripsCountService', () => {
   let service: TotalTripsCountService;

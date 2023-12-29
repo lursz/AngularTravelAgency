@@ -1,14 +1,19 @@
-import { Component } from '@angular/core';
+import { TripsPanelComponent } from './../trips-panel/trips-panel.component';
+import { Component, Input } from '@angular/core';
+import {FormsModule} from "@angular/forms";
+
 import { Trip } from '../trip/trip_interface';
 
 @Component({
   selector: 'app-trip-creator',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './trip-creator.component.html',
   styleUrl: './trip-creator.component.css'
 })
 export class TripCreatorComponent {
+  @Input() tripsPanelComponent!: TripsPanelComponent;
+
   trip: Trip;
   price: number = 0;
   startDateString: string = '';
@@ -96,6 +101,7 @@ export class TripCreatorComponent {
   createTrip() {
     if (!this.validateForm()) {
       return;
-    }
+    } 
+    this.tripsPanelComponent.addTrip(this.trip);
   }
 }
