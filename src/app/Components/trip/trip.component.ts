@@ -19,8 +19,8 @@ export class TripComponent {
   rating: number = 0;
   stars: number[] = [1, 2, 3, 4, 5];
 
-constructor(public tripCountingService: TripCountingService, public tripDB: TripsDbService) {
-}
+  constructor(public tripCountingService: TripCountingService, public tripDB: TripsDbService) {
+  }
 
   addReservedCount() {
     if (this.trip.max_participants >= this.tripProperties.reservedCount) {

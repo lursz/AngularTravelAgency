@@ -1,7 +1,7 @@
 <div class="container">
   <app-trips-counter></app-trips-counter>
     <div class="row">
-      <div *ngFor="let trip of TripsDB.trips; let i = index" class="col-lg-4 col-md-6 mb-4 d-flex">
+      <div *ngFor="let trip of getTrips(); let i = index" class="col-lg-4 col-md-6 mb-4 d-flex">
         <div class="card flex-fill">
           <app-trip [trip]="trip" [tripProperties]="TripsDB.safeGetMapValue(TripsDB.tripsMap, i)" (removeTripEvent) = "TripsDB.removeTrip(i)"></app-trip>
         </div>

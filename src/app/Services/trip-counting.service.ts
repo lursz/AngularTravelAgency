@@ -8,11 +8,14 @@ export class TripCountingService {
   totalReservedTripsCounter: number = 0;
 
 
-  constructor(public tripsDB: TripsDbService) {
+  constructor() {
+    console.log("TripCountingService constructor");
+    console.log(this.totalReservedTripsCounter);
   }
 
   incrementTotalReservedTripsCounter() {
     this.totalReservedTripsCounter++;
+    console.log(this.totalReservedTripsCounter);
   }
 
   decrementTotalReservedTripsCounter() {

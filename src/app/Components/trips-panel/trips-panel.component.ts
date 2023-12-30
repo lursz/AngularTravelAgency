@@ -13,14 +13,17 @@ import { TripsCounterComponent } from "../trips-counter/trips-counter.component"
     standalone: true,
     templateUrl: './trips-panel.component.html',
     styleUrl: './trips-panel.component.css',
-    providers: [TripImporterService, TripsDbService],
+    providers: [TripsDbService],
     imports: [TripComponent, CommonModule, TripsCounterComponent]
 })
 export class TripsPanelComponent {
 
-    constructor(public service: TripImporterService, public TripsDB: TripsDbService) {
+    constructor(public TripsDB: TripsDbService) {
     }
 
-
+    getTrips(): Trip[] {
+        console.log(this.TripsDB.trips);
+        return this.TripsDB.trips;
+    }
 
 }

@@ -5,7 +5,7 @@ import { TripCountingService } from '../../Services/trip-counting.service';
   selector: 'app-trips-counter',
   standalone: true,
   imports: [],
-  providers: [TripCountingService],
+  providers: [],
   templateUrl: './trips-counter.component.html',
   styleUrl: './trips-counter.component.css'
 })
