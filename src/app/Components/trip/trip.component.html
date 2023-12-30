@@ -40,6 +40,20 @@
         <p>Reserved Spots: {{ tripProperties.reservedCount }}</p>
     </div>
 
+
+    <!-- Rate -->
+    <div class="d-flex row p-3">
+      <div class="p-2 col-6">
+        <select class="form-control" id="rating" [(ngModel)]="rating" name="rating">
+          <option *ngFor="let rating of tripDB.possibleRatingValues">
+            {{ rating }}
+          </option>
+        </select>
+      </div>
+      <div class="col-6">
+        <button class="btn btn-primary mt-2 w-100" (click)="rateTrip()">Rate</button>
+      </div>
+    </div>
     <!-- Reservation buttons-->
     <div class="row mt-4">
       <div class="col-md-12 text-center" >

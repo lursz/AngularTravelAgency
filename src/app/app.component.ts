@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TripsPanelComponent } from "./trips-panel/trips-panel.component";
-import { NavComponent } from "./nav/nav.component";
+import { TripsPanelComponent } from "./Components/trips-panel/trips-panel.component";
+import { NavComponent } from "./Components/nav/nav.component";
 
 @Component({
     selector: 'app-root',

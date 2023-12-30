@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
+import { TripsDbService } from './trips-db.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TripCountingService {
-static totalReservedTripsCounter: number = 0;
-ratings: number[] = [1, 2, 3, 4, 5];
+totalReservedTripsCounter: number = 0;
 
 
-static incrementTotalReservedTripsCounter() {
-  TripCountingService.totalReservedTripsCounter++;
+constructor(public tripsDB: TripsDbService) {
 }
 
-static decrementTotalReservedTripsCounter() {
- if (TripCountingService.totalReservedTripsCounter > 0)
-  TripCountingService.totalReservedTripsCounter--;
+incrementTotalReservedTripsCounter() {
+  this.totalReservedTripsCounter++;
+}
+
+decrementTotalReservedTripsCounter() {
+ if (this.totalReservedTripsCounter > 0)
+  this.totalReservedTripsCounter--;
 }
 
 
@@ -28,15 +31,6 @@ hideOrShowTrip(tripsMap: Map<number, TripCountingState>, tripId: number, display
 
 }
 
-setRating(tripsMap: Map<number, TripCountingState>, tripId: number, rating: number) {
-  let tripCountingState = tripsMap.get(tripId);
-  if (tripCountingState) {
-    tripCountingState.rating = rating;
-  } else {
-    tripsMap.set(tripId, new TripCountingState(0, undefined, undefined, rating));
-  }
-
-}
 
 
 

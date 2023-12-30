@@ -4,15 +4,15 @@
       <div class="form-group">
         <label for="tripName">Trip Name</label>
         <input name="name" type="text" class="form-control" id="tripName" placeholder="Trip Name" [(ngModel)]="trip.name">
-  
+
         <label for="country">Country</label>
         <input name="country" type="text" class="form-control" id="country"
                placeholder="Country" [(ngModel)]="trip.country">
-  
+
         <label for="tripDescription">Trip Description</label>
         <textarea name="description" class="form-control" id="tripDescription"
                   rows="3" [(ngModel)]="trip.description"></textarea>
-  
+
         <div class="row">
           <label for="price">Price</label>
           <div class="col-8">
@@ -21,7 +21,7 @@
           </div>
           <div class="col-4 text-center">
             <select name="currency" class="form-control" id="currency" [(ngModel)]="trip.currency">
-              <option *ngFor="let currency of currencyExchangeService.possibleCurrencies" [value]="currency">
+              <option *ngFor="let currency of MoneyService.possibleCurrencies" [value]="currency">
                 {{currency}}
               </option>
             </select>
@@ -31,12 +31,12 @@
           <label for="startDate">Start Date</label>
           <div>
             <input name="startDate" type="date" class="form-control" id="startDate"
-                   placeholder="Start Date" [(ngModel)]="startDateString">
+                   placeholder="Start Date" [(ngModel)]="trip.start_date">
           </div>
           <label for="endDate">End Date</label>
           <div>
             <input name="endDate" type="date" class="form-control" id="endDate"
-                   placeholder="End Date" [(ngModel)]="endDateString">
+                   placeholder="End Date" [(ngModel)]="trip.end_date">
           </div>
         </div>
         <div class="row">
@@ -59,4 +59,3 @@
       </div>
     </form>
   </div>
-  

@@ -1,32 +1,34 @@
-import { TripsPanelComponent } from './../trips-panel/trips-panel.component';
+import { TripsDbService } from '../../Services/trips-db.service';
+import { TripsPanelComponent } from '../trips-panel/trips-panel.component';
 import { Component, Input } from '@angular/core';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 
 import { Trip } from '../trip/trip_interface';
+import { MoneyService } from "../../Services/money.service";
+import { NgForOf } from "@angular/common";
 
 @Component({
   selector: 'app-trip-creator',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, NgForOf],
+  providers: [TripsDbService, MoneyService],
   templateUrl: './trip-creator.component.html',
   styleUrl: './trip-creator.component.css'
 })
 export class TripCreatorComponent {
-  @Input() tripsPanelComponent!: TripsPanelComponent;
-
   trip: Trip;
   price: number = 0;
   startDateString: string = '';
   endDateString: string = '';
 
-  constructor() {
+  constructor(public TripsDB: TripsDbService, public MoneyService: MoneyService) {
     this.trip = {
       id: 0,
       name: '',
       country: '',
       start_date: '',
       end_date: '',
-      price: 0,
+      price: 1,
       currency: '',
       max_participants: 0,
       description: '',
@@ -35,8 +37,18 @@ export class TripCreatorComponent {
   }
 
   validateForm(): boolean {
-    const startDate = new Date(this.startDateString);
-    const endDate = new Date(this.endDateString);
+    const startDate = new Date(this.trip.start_date);
+    const endDate = new Date(this.trip.end_date);
+
+    let tempDate = this.trip.start_date.split("/").reverse();
+    this.trip.start_date = tempDate.join("-");
+
+    tempDate = this.trip.end_date.split("/").reverse();
+    this.trip.end_date = tempDate.join("-");
+    console.log(this.trip.start_date);
+    console.log(this.trip.end_date);
+
+
 
     if (this.trip.name === '') {
       alert('Name cannot be empty');
@@ -63,9 +75,7 @@ export class TripCreatorComponent {
       return false;
     }
 
-    if (!this.trip.start_date || !this.trip.end_date ||
-        this.trip.start_date.toString() === 'Invalid Date' ||
-        this.trip.end_date.toString() === 'Invalid Date') {
+    if (!this.trip.start_date || !this.trip.end_date) {
       alert('Start date and end date must be set');
       return false;
     }
@@ -85,8 +95,6 @@ export class TripCreatorComponent {
       return false;
     }
 
-    this.trip.start_date = startDate.toLocaleDateString().split('T')[0];
-    this.trip.end_date = endDate.toLocaleDateString().split('T')[0];
 
     try {
       new URL(this.trip.picture);
@@ -101,7 +109,10 @@ export class TripCreatorComponent {
   createTrip() {
     if (!this.validateForm()) {
       return;
-    } 
-    this.tripsPanelComponent.addTrip(this.trip);
+    }
+    this.TripsDB.addTrip(this.trip);
+    for (const trip of this.TripsDB.trips) {
+      console.log(trip);
+    }
   }
 }
