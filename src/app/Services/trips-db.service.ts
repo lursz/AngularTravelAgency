@@ -22,6 +22,7 @@ export class TripsDbService {
 init(service: TripImporterService) {
     this.trips = this.service.getTrips();
     for (let i = 0; i < this.trips.length; i++) {
+        this.trips[i].id = i;
         this.tripsMap.set(i, new TripCountingState(0, undefined, undefined));
     }
     this.getMostExpensiveTrip();
@@ -40,6 +41,7 @@ rateTrip(tripId: number, rating: number) {
 }
 
 addTrip(trip: Trip) {
+    trip.id = this.trips.length;
     this.trips.push(trip);
     this.tripsMap.set(this.trips.length - 1, new TripCountingState(0, undefined, undefined));
     this.getMostExpensiveTrip();
@@ -49,12 +51,15 @@ addTrip(trip: Trip) {
 removeTrip(tripId: number) {
     this.trips.splice(tripId, 1);
     this.tripsMap.delete(tripId);
+    this.getMostExpensiveTrip();
+    this.getCheapestTrip();
 }
 
 getMostExpensiveTrip(): number {
     let maxPrice = 0;
     let maxPriceIndex = 0;
     for (let i = 0; i < this.trips.length; i++) {
+        this.safeGetMapValue(this.tripsMap, i).highestPrice = false;
         if (this.trips[i].price > maxPrice) {
             maxPrice = this.trips[i].price;
             maxPriceIndex = i;
@@ -68,6 +73,7 @@ getCheapestTrip(): number {
     let minPrice = 0;
     let minPriceIndex = 0;
     for (let i = 0; i < this.trips.length; i++) {
+        this.safeGetMapValue(this.tripsMap, i).lowestPrice = false;
         if (this.trips[i].price < minPrice) {
             minPrice = this.trips[i].price;
             minPriceIndex = i;

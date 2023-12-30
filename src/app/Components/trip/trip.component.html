@@ -1,9 +1,7 @@
 <div *ngIf="tripProperties.display">
   <div class="container"
-  [ngClass]="{'cheapestTrip': tripProperties.lowestPrice === true, 'mostExpensiveTrip': tripProperties.highestPrice, 'almost-full': trip.max_participants - tripProperties.reservedCount < 3}"
-  >
-  <h3>{{TripCountingService.totalReservedTripsCounter}}</h3>
-  <button class="btn btn-danger" (click)="removeTrip()">X</button>
+    [ngClass]="{'cheapest-trip': tripProperties.lowestPrice, 'most-expensive-trip': tripProperties.highestPrice, 'almost-full': trip.max_participants - tripProperties.reservedCount < 3}">
+    <button class="btn btn-danger" (click)="removeTrip()">X</button>
     <!-- Img -->
     <div class="row">
       <div class="col-md-12 text-center">
@@ -38,31 +36,29 @@
       </div>
       <div class="col-md-6 text-center">
         <p>Reserved Spots: {{ tripProperties.reservedCount }}</p>
-    </div>
+      </div>
 
 
-    <!-- Rate -->
-    <div class="d-flex row p-3">
-      <div class="p-2 col-6">
-        <select class="form-control" id="rating" [(ngModel)]="rating" name="rating">
-          <option *ngFor="let rating of tripDB.possibleRatingValues">
-            {{ rating }}
-          </option>
-        </select>
-      </div>
-      <div class="col-6">
-        <button class="btn btn-primary mt-2 w-100" (click)="rateTrip()">Rate</button>
-      </div>
-    </div>
-    <!-- Reservation buttons-->
-    <div class="row mt-4">
-      <div class="col-md-12 text-center" >
-        <div *ngIf="tripProperties.reservedCount < trip.max_participants">
-          <button class="btn btn-primary" (click)="addReservedCount()">+</button>
+      <!-- Rate -->
+        <div class="p-2 col-12  text-center">
+          Rating: {{this.tripProperties.rating}}
+          <div class="star-rating">
+            <span *ngFor="let star of stars; let i = index" (click)="rateTrip(i + 1)"
+              [ngClass]="{'selected': i < rating}">
+              {{ i < rating ? '★' : '☆' }} </span>
+          </div>
+
+
+
         </div>
-        <div *ngIf="tripProperties.reservedCount != 0">
-          <button class="btn btn-primary" (click)="subtractReservedCount()">-</button>
-      </div>
-    </div>
-  </div>
-  
+        <!-- Reservation buttons-->
+        <div class="row mt-4">
+          <div class="col-md-12 text-center">
+            <div *ngIf="tripProperties.reservedCount < trip.max_participants">
+              <button class="btn btn-primary" (click)="addReservedCount()">+</button>
+            </div>
+            <div *ngIf="tripProperties.reservedCount != 0">
+              <button class="btn btn-primary" (click)="subtractReservedCount()">-</button>
+            </div>
+          </div>
+        </div>

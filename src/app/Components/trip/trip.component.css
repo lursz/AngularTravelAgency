@@ -6,13 +6,27 @@
 }
 
 .cheapest-trip {
-    border: 2px solid green;
+    border: 2px solid lightgreen;
 }
 
 .most-expensive-trip {
-    border: 2px solid red;
+    border: 2px solid lightcoral;
 }
 
 .almost-full{
     background-color: lightcoral;
 }
+
+/* Star rating */
+.star-rating {
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  .star-rating span {
+    margin: 0 2px;
+  }
+
+  .star-rating span.selected {
+    color: black;
+  }

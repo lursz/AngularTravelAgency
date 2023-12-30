@@ -17,6 +17,7 @@ export class TripComponent {
   @Input() tripProperties!: TripCountingState;
   @Output() removeTripEvent = new EventEmitter<number>();
   rating: number = 0;
+  stars: number[] = [1, 2, 3, 4, 5];
 
 constructor(public tripCountingService: TripCountingService, public tripDB: TripsDbService) {
 }
@@ -35,7 +36,8 @@ constructor(public tripCountingService: TripCountingService, public tripDB: Trip
     }
   }
 
- rateTrip() {
+ rateTrip(value: number) {
+    this.rating = value;
     this.tripDB.rateTrip(this.trip.id, this.rating);
   }
 
