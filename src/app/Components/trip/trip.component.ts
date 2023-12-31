@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { Trip } from './trip_interface';
 import { TripCountingService, TripCountingState } from '../../Services/trip-counting.service';
 import { TripsDbService } from '../../Services/trips-db.service';
@@ -7,7 +7,7 @@ import { TripsDbService } from '../../Services/trips-db.service';
 @Component({
   selector: 'app-trip',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgIf],
   providers: [],
   templateUrl: './trip.component.html',
   styleUrl: './trip.component.css'

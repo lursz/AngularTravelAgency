@@ -44,19 +44,5 @@ export class TripCountingService {
 
 /* -------------------------- Trip Counting State ------------------------- */
 export class TripCountingState {
-  display: boolean;
-  reservedCount: number;
-  rating?: number;
-
-  lowestPrice?: boolean;
-  highestPrice?: boolean;
-
-  constructor(reservedCount: number, lowestPrice?: boolean, highestPrice?: boolean, rating: number = 0, display: boolean = true) {
-    this.reservedCount = reservedCount;
-    this.lowestPrice = lowestPrice;
-    this.highestPrice = highestPrice;
-    this.rating = rating;
-    this.display = display;
-
-  }
+constructor(public reservedCount: number, public lowestPrice?: boolean, public highestPrice?: boolean, public rating: number = 0, public display: boolean = true){}
 }

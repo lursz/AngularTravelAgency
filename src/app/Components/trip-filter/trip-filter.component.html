@@ -1,1 +1,31 @@
-filter works
+<form>
+  <div>
+    <label for="name">Name:</label>
+    <input class="form-control" type="text" id="name" name="name" [(ngModel)]="filter.name">
+  </div>
+  <div>
+    <label for="country">Country:</label>
+    <input class="form-control" type="text" id="country" name="country" [(ngModel)]="filter.country">
+  </div>
+  <div>
+    <label for="startDate">Start Date:</label>
+    <input class="form-control" type="date" id="startDate" name="startDate" [(ngModel)]="filter.startDate">
+  </div>
+  <div>
+    <label for="endDate">End Date:</label>
+    <input class="form-control" type="date" id="endDate" name="endDate" [(ngModel)]="filter.endDate">
+  </div>
+  <div>
+    <label for="priceFrom">Price From:</label>
+    <input class="form-control" type="number" id="priceFrom" name="priceFrom" [(ngModel)]="filter.priceFrom">
+  </div>
+  <div>
+    <label for="priceTo">Price To:</label>
+    <input class="form-control" type="number" id="priceTo" name="priceTo" [(ngModel)]="filter.priceTo">
+  </div>
+  <div>
+    <label for="rating">Rating:</label>
+    <input class="form-control" type="number" id="rating" name="rating" [(ngModel)]="filter.rating">
+  </div>
+  <button type="button" (click)="applyFilter()">Filter</button>
+</form>
