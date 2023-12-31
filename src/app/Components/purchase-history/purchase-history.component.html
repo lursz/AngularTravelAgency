@@ -1,0 +1,25 @@
+<h1>Purchase History</h1>
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card" *ngFor="let trip of purchaseHistoryService.items">
+          <img [src]="trip.picture" class="card-img-top" alt="{{ trip.name }} Image">
+          <div class="card-body">
+            <h5 class="card-title">{{ trip.name }}</h5>
+            <p class="card-text">{{ trip.description }}</p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Country: {{ trip.country }}</li>
+              <li class="list-group-item">Start Date: {{ trip.start_date }}</li>
+              <li class="list-group-item">End Date: {{ trip.end_date }}</li>
+              <li class="list-group-item">Price: {{ trip.price }} {{ trip.currency }}</li>
+              <li class="list-group-item">Max Participants: {{ trip.max_participants }}</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>

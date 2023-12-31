@@ -3,6 +3,7 @@ import { CommonModule, NgIf } from '@angular/common';
 import { Trip } from './trip_interface';
 import { TripCountingService, TripCountingState } from '../../Services/trip-counting.service';
 import { TripsDbService } from '../../Services/trips-db.service';
+import { CartService } from '../../Services/cart.service';
 
 @Component({
   selector: 'app-trip',
@@ -19,7 +20,7 @@ export class TripComponent {
   rating: number = 0;
   stars: number[] = [1, 2, 3, 4, 5];
 
-  constructor(public tripCountingService: TripCountingService, public tripDB: TripsDbService) {
+  constructor(public tripCountingService: TripCountingService, public tripDB: TripsDbService, public cartService: CartService) {
   }
 
   addReservedCount() {
@@ -27,12 +28,18 @@ export class TripComponent {
       this.tripProperties.reservedCount++;
       this.tripCountingService.incrementTotalReservedTripsCounter();
     }
+    if (this.tripProperties.reservedCount === 1) {
+      this.cartService.addToCart(this.trip);
+    }
 
   }
   subtractReservedCount() {
     if (this.tripProperties.reservedCount > 0) {
       this.tripProperties.reservedCount--;
       this.tripCountingService.decrementTotalReservedTripsCounter();
+    }
+    if (this.tripProperties.reservedCount === 0) {
+      this.cartService.removeFromCart(this.trip);
     }
   }
 

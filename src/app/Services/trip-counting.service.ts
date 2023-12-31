@@ -9,13 +9,10 @@ export class TripCountingService {
 
 
   constructor() {
-    console.log("TripCountingService constructor");
-    console.log(this.totalReservedTripsCounter);
   }
 
   incrementTotalReservedTripsCounter() {
     this.totalReservedTripsCounter++;
-    console.log(this.totalReservedTripsCounter);
   }
 
   decrementTotalReservedTripsCounter() {
