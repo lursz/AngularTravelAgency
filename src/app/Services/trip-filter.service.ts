@@ -23,7 +23,8 @@ export class TripFilterService {
 
   filter(filter: Filter) {
     for (let trip of this.tripDbService.trips) {
-      let countryMatch = filter.country ? filter.country.includes(trip.country) : true;
+      console.log(filter.country)
+      let countryMatch = filter.country.length !== 0 ? filter.country.includes(trip.country) : true;
 
       let dateFromMatch = filter.startDate ? new Date(trip.start_date) >= new Date(filter.startDate) : true;
       let dateToMatch = filter.endDate ? new Date(trip.end_date) <= new Date(filter.endDate) : true;
@@ -32,15 +33,17 @@ export class TripFilterService {
       let priceFromMatch = filter.priceFrom ? trip.price >= filter.priceFrom : true;
       let priceToMatch = filter.priceTo ? trip.price <= filter.priceTo : true;
       let priceMatch = priceFromMatch && priceToMatch;
-      console.log(filter.rating);
-      console.log(Math.round(this.tripDbService.safeGetMapValue(this.tripDbService.tripsMap, trip.id).ratingSum));
-      console.log(filter.rating[Math.round(this.tripDbService.safeGetMapValue(this.tripDbService.tripsMap, trip.id).ratingSum)]);
-      let ratingMatch = filter.rating ? filter.rating[Math.round(this.tripDbService.safeGetMapValue(this.tripDbService.tripsMap, trip.id).ratingSum) - 1] : true;
-      if (ratingMatch == undefined) {
-        ratingMatch = true;
+
+      let currentSum = this.tripDbService.safeGetMapValue(this.tripDbService.tripsMap, trip.id).ratingSum;
+      let currentCount = this.tripDbService.safeGetMapValue(this.tripDbService.tripsMap, trip.id).ratingCount;
+      console.log(currentCount);
+      let ratingMatch = filter.rating.some(t => t) ? filter.rating[Math.round(currentSum / currentCount) - 1] : true;
+      if (ratingMatch === undefined || currentCount === 0) {
+        ratingMatch = false;
       }
       console.log(ratingMatch);
       this.tripDbService.safeGetMapValue(this.tripDbService.tripsMap, trip.id).display = countryMatch && dateMatch && priceMatch && ratingMatch;
+      console.log(countryMatch, dateMatch, priceMatch, ratingMatch)
     }
   }
 }

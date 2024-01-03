@@ -15,9 +15,7 @@ export class MoneyComponent {
   currentCurrency: string = this.moneyService.chosenCurrency;
 
   updateCurrency(currency: string) {
-    console.log("chuj");
     this.moneyService.chosenCurrency = currency;
-    console.log(this.moneyService.chosenCurrency);
     this.currentCurrency = currency;
   }
 
