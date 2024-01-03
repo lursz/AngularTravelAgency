@@ -1,4 +1,3 @@
-import { Trip } from './../trip/trip_interface';
 import { NgForOf, NgIf } from '@angular/common';
 import { Filter, TripFilterService } from '../../Services/trip-filter.service';
 import { TripsDbService } from '../../Services/trips-db.service';

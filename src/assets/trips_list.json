@@ -5,7 +5,7 @@
         "start_date": "2023-06-01",
         "end_date": "2023-06-08",
         "price": 1000,
-        "currency": "EUR-CENT",
+        "currency": "USD",
         "max_participants": 20,
         "description": "Take a break from everyday hustle and bustle and join us on a trip to the sunny Spanish coast. We will visit the most beautiful beaches and enjoy the thrill of the local nightlife.",
         "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Vista_de_Benidorm%2C_Espa%C3%B1a%2C_2014-07-02%2C_DD_65.JPG/2560px-Vista_de_Benidorm%2C_Espa%C3%B1a%2C_2014-07-02%2C_DD_65.JPG"
@@ -16,7 +16,7 @@
         "start_date": "2023-07-01",
         "end_date": "2023-07-08",
         "price": 1500,
-        "currency": "EUR-CENT",
+        "currency": "USD",
         "max_participants": 20,
         "description": "Join us on a trip to the magnificent Norwegian fjords. Enjoy the breathtaking views and the fresh air of the Norwegian mountains.",
         "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/MilfordSound.jpg/1920px-MilfordSound.jpg"
@@ -27,7 +27,7 @@
         "start_date": "2023-08-01",
         "end_date": "2023-08-08",
         "price": 2000,
-        "currency": "EUR-CENT",
+        "currency": "USD",
         "max_participants": 20,
         "description": "Join us on a trip to the beautiful Greek islands. Enjoy the sun, the sea and the local cuisine.",
         "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Blue-dome-Santorini.JPG/1920px-Blue-dome-Santorini.JPG"
@@ -38,7 +38,7 @@
         "start_date": "2023-09-01",
         "end_date": "2023-09-08",
         "price": 2500,
-        "currency": "EUR-CENT",
+        "currency": "USD",
         "max_participants": 20,
         "description": "Join us on a trip to the amazing Italian lakes. Enjoy the breathtaking views and the fresh air of the Italian mountains.",
         "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Le_prime_luci_dell%27alba_in_Valle_Orco_-_Ceresole_Reale%2C_Colle_del_Nivolet.jpg/1920px-Le_prime_luci_dell%27alba_in_Valle_Orco_-_Ceresole_Reale%2C_Colle_del_Nivolet.jpg"
@@ -49,7 +49,7 @@
         "start_date": "2023-10-01",
         "end_date": "2023-10-08",
         "price": 3000,
-        "currency": "EUR-CENT",
+        "currency": "USD",
         "max_participants": 20,
         "description": "Join us on a trip to the beautiful Croatian coast. Enjoy the Adriatic sea and scuba dive in the crystal clear waters.",
         "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Dugi_otok_island.jpg/1920px-Dugi_otok_island.jpg"
@@ -60,7 +60,7 @@
         "start_date": "2023-11-01",
         "end_date": "2023-11-08",
         "price": 3500,
-        "currency": "EUR-CENT",
+        "currency": "USD",
         "max_participants": 20,
         "description": "Join us on a trip to the stellar Icelandic Northern Lights. Enjoy the hot water springs and the breathtaking views of the pristine Icelandic black beaches.",
         "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Church_of_light.jpg/1920px-Church_of_light.jpg"
@@ -71,7 +71,7 @@
         "start_date": "2023-12-01",
         "end_date": "2023-12-08",
         "price": 4000,
-        "currency": "EUR-CENT",
+        "currency": "USD",
         "max_participants": 20,
         "description": "Join us on a trip to the amazing Swiss Alps. Enjoy the stunning views and countless ski slopes.",
         "picture": "https://upload.wikimedia.org/wikipedia/commons/6/60/Matterhorn_from_Domh%C3%BCtte_-_2.jpg"
@@ -82,7 +82,7 @@
         "start_date": "2024-01-01",
         "end_date": "2024-01-08",
         "price": 4500,
-        "currency": "EUR-CENT",
+        "currency": "USD",
         "max_participants": 20,
         "description": "Join us on a trip to the life-changing African Safari. Enjoy the presence of the majestic African wildlife and the stark flora of the African savannah.",
         "picture": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Zebras%2C_Serengeti_savana_plains%2C_Tanzania.jpg"
@@ -93,9 +93,9 @@
         "start_date": "2024-02-01",
         "end_date": "2024-02-08",
         "price": 5000,
-        "currency": "EUR-CENT",
+        "currency": "USD",
         "max_participants": 20,
-        "description": "Join us on a trip to the amazing Australian Outback. Enjoy the summer climate in the middle of the European winter and dive into unique Australian fauna.",
+        "description": "Join us on a trip to the amazing Australian Outback. Enjoy the summer climate in the middle of the USDopean winter and dive into unique Australian fauna.",
         "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Uluru%2C_helicopter_view%2C_cropped.jpg/1920px-Uluru%2C_helicopter_view%2C_cropped.jpg"
     },
     {
@@ -104,7 +104,7 @@
         "start_date": "2024-03-01",
         "end_date": "2024-03-08",
         "price": 5500,
-        "currency": "EUR-CENT",
+        "currency": "USD",
         "max_participants": 20,
         "description": "Join us on a trip to the amazing New Zealand. Enjoy the virgin nature and the unique flora and fauna of the New Zealand islands.",
         "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Mt_Cook%2C_NZ.jpg/1920px-Mt_Cook%2C_NZ.jpg"
@@ -115,7 +115,7 @@
         "start_date": "2024-04-01",
         "end_date": "2024-04-08",
         "price": 6000,
-        "currency": "EUR-CENT",
+        "currency": "USD",
         "max_participants": 20,
         "description": "Join us on a trip to the pulsating with life Amsterdam. Prepare to embrace to vivid nightlife and smoke some weed in the local coffee shops.",
         "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Amsterdam_Canal_Tour.jpg/1920px-Amsterdam_Canal_Tour.jpg"

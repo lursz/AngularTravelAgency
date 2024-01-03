@@ -26,7 +26,7 @@ export class TripCountingService {
     if (tripCountingState) {
       tripCountingState.display = display;
     } else {
-      tripsMap.set(tripId, new TripCountingState(0, undefined, undefined, 0, display));
+      tripsMap.set(tripId, new TripCountingState(0, undefined, undefined, 0, 0, display));
     }
 
   }
@@ -41,5 +41,5 @@ export class TripCountingService {
 
 /* -------------------------- Trip Counting State ------------------------- */
 export class TripCountingState {
-constructor(public reservedCount: number, public lowestPrice?: boolean, public highestPrice?: boolean, public rating: number = 0, public display: boolean = true){}
+  constructor(public reservedCount: number, public lowestPrice?: boolean, public highestPrice?: boolean, public ratingSum: number = 0, public ratingCount: number = 0, public display: boolean = true) { }
 }

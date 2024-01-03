@@ -4,6 +4,7 @@ import { Trip } from './trip_interface';
 import { TripCountingService, TripCountingState } from '../../Services/trip-counting.service';
 import { TripsDbService } from '../../Services/trips-db.service';
 import { CartService } from '../../Services/cart.service';
+import { MoneyService } from '../../Services/money.service';
 
 @Component({
   selector: 'app-trip',
@@ -20,7 +21,7 @@ export class TripComponent {
   rating: number = 0;
   stars: number[] = [1, 2, 3, 4, 5];
 
-  constructor(public tripCountingService: TripCountingService, public tripDB: TripsDbService, public cartService: CartService) {
+  constructor(public tripCountingService: TripCountingService, public tripDB: TripsDbService, public cartService: CartService, public moneyService: MoneyService) {
   }
 
   addReservedCount() {

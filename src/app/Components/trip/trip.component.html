@@ -14,7 +14,7 @@
       <div class="col-md-12 text-center">
         <h1>{{ trip.name | uppercase }}</h1>
         <h3>{{ trip.country }}</h3>
-        <p>€ {{ trip.price }}</p>
+        <p>{{moneyService.chosenCurrency}} {{ trip.price * (moneyService.exchangeRates.get(moneyService.chosenCurrency) ?? 1.0) | number: '1.2-2' }}</p>
         <p>{{ trip.description }}</p>
       </div>
     </div>
@@ -42,7 +42,7 @@
 
     <!-- Rate -->
     <div class="p-2 col-12  text-center">
-      Rating: {{this.tripProperties.rating}}
+      Rating: {{this.tripProperties.ratingSum / this.tripProperties.ratingCount}}
       <div class="star-rating">
         <span *ngFor="let star of stars; let i = index" (click)="rateTrip(i + 1)" [ngClass]="{'selected': i < rating}">
           {{ i < rating ? '★' : '☆' }} </span>

@@ -1,1 +1,11 @@
-<p>money works!</p>
+<select class="form-select form-select-lg" aria-label=".form-select-lg example"
+        [(ngModel)]="moneyService.chosenCurrency">
+    <option selected>{{moneyService.chosenCurrency}}</option>
+    <option *ngFor="let currency of moneyService.possibleCurrencies"
+            [class.d-none]="currency == moneyService.chosenCurrency">
+      {{currency}}
+    </option>
+  </select>
+
+  <!-- moneyService.chosenCurrency = currency" -->
+
