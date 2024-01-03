@@ -17,6 +17,14 @@
     background-color: lightcoral;
 }
 
+.corner-button {
+  position:absolute;
+  top: 0.1rem;
+  right: 0.1rem;
+
+  border-radius: 50%;
+}
+
 /* Star rating */
 .star-rating {
     font-size: 2rem;
@@ -30,3 +38,5 @@
   .star-rating span.selected {
     color: black;
   }
+
+

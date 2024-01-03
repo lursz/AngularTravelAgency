@@ -11,6 +11,7 @@ export class TripsDbService {
   tripsMap: Map<number, TripCountingState> = new Map<number, TripCountingState>();
   service: TripImporterService;
   possibleRatingValues: number[] = [1, 2, 3, 4, 5];
+  possibleCountries: string[] = [];
 
   safeGetMapValue(Map: Map<number, TripCountingState>, key: number): TripCountingState {
     let value = Map.get(key);
@@ -27,6 +28,7 @@ init(service: TripImporterService) {
     }
     this.getMostExpensiveTrip();
     this.getCheapestTrip();
+    this.loadPossibleCountries();
 }
 constructor(service: TripImporterService) {
     this.service = service;
@@ -38,6 +40,15 @@ constructor(service: TripImporterService) {
 
 rateTrip(tripId: number, rating: number) {
     this.safeGetMapValue(this.tripsMap, tripId).rating = rating;
+}
+
+loadPossibleCountries() {
+
+    for (let trip of this.trips) {
+        if (!this.possibleCountries.includes(trip.country)) {
+            this.possibleCountries.push(trip.country);
+        }
+    }
 }
 
 addTrip(trip: Trip) {

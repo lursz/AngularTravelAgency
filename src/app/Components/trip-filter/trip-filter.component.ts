@@ -1,30 +1,37 @@
-import { NgForOf } from '@angular/common';
+import { Trip } from './../trip/trip_interface';
+import { NgForOf, NgIf } from '@angular/common';
 import { Filter, TripFilterService } from '../../Services/trip-filter.service';
 import { TripsDbService } from '../../Services/trips-db.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Trip } from '../trip/trip_interface';
 
 @Component({
   selector: 'app-trip-filter',
   standalone: true,
-  imports: [NgForOf, FormsModule],
+  imports: [NgIf, NgForOf, FormsModule],
   providers: [],
   templateUrl: './trip-filter.component.html',
   styleUrl: './trip-filter.component.css'
 })
 export class TripFilterComponent {
-  constructor(public tripsDbService: TripsDbService, public tripFilterService: TripFilterService) { }
+  filter: Filter = new Filter('', [], '', '', 0, 0, []);
+  selectedCountries: {[key: string]: boolean} = {};
+  selectedRatings: boolean[] = [false, false, false, false, false];
 
-  filter: Filter = new Filter('', '', '', '', 0, 0, 0);
+  constructor(public tripsDbService: TripsDbService, public tripFilterService: TripFilterService) {}
+
 
   applyFilter() {
+    let selected = Object.keys(this.selectedCountries).filter(key => this.selectedCountries[key]);
+    this.filter.country = selected;
+    this.filter.rating = this.selectedRatings;
     this.tripFilterService.filter(this.filter);
-    console.log(this.filter);
+
+    this.selectedRatings = [false, false, false, false, false];
   }
 
-
-
-
+  resetFilter() {
+    this.tripFilterService.resetFilter();
+  }
 
 }

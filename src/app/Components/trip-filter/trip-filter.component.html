@@ -1,31 +1,65 @@
 <form>
-  <div>
-    <label for="name">Name:</label>
-    <input class="form-control" type="text" id="name" name="name" [(ngModel)]="filter.name">
+  <div class="container">
+    <div class="mt-4 col-6">
+      <label for="country">Country:</label>
+      <div *ngFor="let country of this.tripsDbService.possibleCountries" class="form-check">
+        <input class="form-check-input" type="checkbox" id="{{country}}" name="{{country}}"
+          [(ngModel)]="selectedCountries[country]">
+        <label class="form-check-label" for="{{country}}">{{country}}</label>
+      </div>
+    </div>
+
+
+<!--     
+  <div class="container mt-4">
+    <label for="rating">Rating</label>
+    <div *ngFor="let rating of ratings; let i = index">
+      <input type="checkbox" id="{{rating}}" name="{{rating}}" [(ngModel)]="selectedRatings[i]">
+      <label for="{{rating}}">
+        <span *ngFor="let star of [].constructor(rating)">{{'★'}}</span>
+      </label>
+    </div>
+  </div> -->
+
+
+    <div class="mt-4 col-3">
+      <label for="rating">Rating</label>
+      <div *ngFor="let i of [1,2,3,4,5]">
+        <input type="checkbox" id="{{i}}" name="{{i}}" [(ngModel)]="selectedRatings[i-1]">
+        <label for="{{i}}">
+          <span *ngFor="let star of [].constructor(i)">{{'★'}}</span>
+        </label>
+      </div>
+    </div>
   </div>
-  <div>
-    <label for="country">Country:</label>
-    <input class="form-control" type="text" id="country" name="country" [(ngModel)]="filter.country">
+
+  <div class="row">
+    <div class="col-6">
+      <label for="startDate">Start Date:</label>
+      <input class="form-control" type="date" id="startDate" name="startDate" [(ngModel)]="filter.startDate">
+    </div>
+    <div class="col-6">
+      <label for="endDate">End Date:</label>
+      <input class="form-control" type="date" id="endDate" name="endDate" [(ngModel)]="filter.endDate">
+    </div>
   </div>
-  <div>
-    <label for="startDate">Start Date:</label>
-    <input class="form-control" type="date" id="startDate" name="startDate" [(ngModel)]="filter.startDate">
-  </div>
-  <div>
-    <label for="endDate">End Date:</label>
-    <input class="form-control" type="date" id="endDate" name="endDate" [(ngModel)]="filter.endDate">
-  </div>
-  <div>
-    <label for="priceFrom">Price From:</label>
-    <input class="form-control" type="number" id="priceFrom" name="priceFrom" [(ngModel)]="filter.priceFrom">
-  </div>
-  <div>
-    <label for="priceTo">Price To:</label>
-    <input class="form-control" type="number" id="priceTo" name="priceTo" [(ngModel)]="filter.priceTo">
+  <div class="row">
+    <div class="col-6">
+      <label for="priceFrom">Price From:</label>
+      <input class="form-control" type="number" id="priceFrom" name="priceFrom" [(ngModel)]="filter.priceFrom">
+    </div>
+    <div class="col-6">
+      <label for="priceTo">Price To:</label>
+      <input class="form-control" type="number" id="priceTo" name="priceTo" [(ngModel)]="filter.priceTo">
+    </div>
   </div>
   <div>
     <label for="rating">Rating:</label>
     <input class="form-control" type="number" id="rating" name="rating" [(ngModel)]="filter.rating">
   </div>
-  <button type="button" (click)="applyFilter()">Filter</button>
+  <div class="row p-2">
+    <button type="button" class="btn btn-dark col-10" (click)="applyFilter()">Filter</button>
+    <button type="button" class="btn btn-dark col-2" (click)="resetFilter()">Reset</button>
+  </div>
+
 </form>
