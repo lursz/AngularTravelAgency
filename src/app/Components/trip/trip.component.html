@@ -1,4 +1,4 @@
-<div *ngIf="tripProperties.display">
+<div>
   <div class="container card flex-fill"
     [ngClass]="{'cheapest-trip': tripProperties.lowestPrice, 'most-expensive-trip': tripProperties.highestPrice, 'almost-full': trip.max_participants - tripProperties.reservedCount < 3}">
     <button class="btn btn-danger corner-button" (click)="removeTrip()">X</button>

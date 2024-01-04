@@ -11,5 +11,19 @@ import { NgFor } from '@angular/common';
 })
 export class PurchaseHistoryComponent {
 
+
+tripStatus = (start_date: string, end_date: string) => {
+  const today = new Date();
+  const startDate = new Date(start_date);
+  const endDate = new Date(end_date);
+  if (startDate > today) {
+    return 'Awaiting';
+  } else if (startDate < today && endDate > today) {
+    return 'Ongoing';
+  } else {
+    return 'Finished';
+  }
+}
+
   constructor(public purchaseHistoryService: PurchaseHistoryService){}
 }

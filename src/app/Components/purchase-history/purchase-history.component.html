@@ -11,8 +11,8 @@
               <li class="list-group-item">Country: {{ trip.country }}</li>
               <li class="list-group-item">Start Date: {{ trip.start_date }}</li>
               <li class="list-group-item">End Date: {{ trip.end_date }}</li>
-              <li class="list-group-item">Price: {{ trip.price }} {{ trip.currency }}</li>
-              <li class="list-group-item">Max Participants: {{ trip.max_participants }}</li>
+              <li class="list-group-item">Price per person: {{ trip.price }} {{ trip.currency }}</li>
+              <li class="list-group-item">Trips status: {{ tripStatus(trip.start_date, trip.end_date) }}</li>
             </ul>
           </div>
           <div class="card-footer">
