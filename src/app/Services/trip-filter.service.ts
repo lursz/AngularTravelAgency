@@ -36,14 +36,11 @@ export class TripFilterService {
 
       let currentSum = this.tripDbService.safeGetMapValue(this.tripDbService.tripsMap, trip.id).ratingSum;
       let currentCount = this.tripDbService.safeGetMapValue(this.tripDbService.tripsMap, trip.id).ratingCount;
-      console.log(currentCount);
       let ratingMatch = filter.rating.some(t => t) ? filter.rating[Math.round(currentSum / currentCount) - 1] : true;
       if (ratingMatch === undefined || currentCount === 0) {
         ratingMatch = false;
       }
-      console.log(ratingMatch);
       this.tripDbService.safeGetMapValue(this.tripDbService.tripsMap, trip.id).display = countryMatch && dateMatch && priceMatch && ratingMatch;
-      console.log(countryMatch, dateMatch, priceMatch, ratingMatch)
     }
   }
 }

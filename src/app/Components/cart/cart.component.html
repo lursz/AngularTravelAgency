@@ -1,28 +1,50 @@
 <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card" *ngFor="let trip of cartService.items">
-          <img [src]="trip.picture" class="card-img-top" alt="{{ trip.name }} Image">
-          <div class="card-body">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card" *ngFor="let trip of cartService.items">
+        <div class="row">
+          <div class="col-3">
+            <img [src]="trip.picture" class="card-img-top" alt="{{ trip.name }} Image">
+          </div>
+          <div class="card-body col-9">
             <h5 class="card-title">{{ trip.name }}</h5>
             <p class="card-text">{{ trip.description }}</p>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Country: {{ trip.country }}</li>
               <li class="list-group-item">Start Date: {{ trip.start_date }}</li>
               <li class="list-group-item">End Date: {{ trip.end_date }}</li>
-              <li class="list-group-item">Price: {{ trip.price }} {{ trip.currency }}</li>
+              <li class="list-group-item">Price: {{moneyService.chosenCurrency}} {{ trip.price *
+                (moneyService.exchangeRates.get(moneyService.chosenCurrency) ?? 1.0) | number: '1.2-2' }}</li>
               <li class="list-group-item">Max Participants: {{ trip.max_participants }}</li>
+              <li class="list-group-item">Reserved: {{ tripsDbService.getReservedCount(trip.id) }}</li>
             </ul>
           </div>
-          <div class="card-footer">
-            <button type="button" class="btn btn-danger" (click)="cartService.removeFromCart(trip)">
+        </div>
+        <div class="card-footer row">
+
+          <div *ngIf="tripsDbService.getReservedCount(trip.id) < trip.max_participants" class="mr-2 col-4 text-center">
+            <button class="btn btn-dark full-width" (click)="tripsDbService.incrementReservedCount(trip.id);cartService.calculateTotalCost()">+</button>
+          </div>
+          <div class="col-4 text-center">
+            <button type="button" class="btn btn-danger full-width" (click)="cartService.removeFromCart(trip)">
               <i class="bi bi-x-lg"></i> Remove
             </button>
+          </div>
+          <div *ngIf="tripsDbService.getReservedCount(trip.id) != 0" class="col-4 text-center">
+            <button class="btn btn-dark full-width" (click)="tripsDbService.decrementReservedCount(trip.id);cartService.calculateTotalCost()">-</button>
           </div>
         </div>
       </div>
     </div>
-    <button type="button" class="btn btn-danger" (click)="cartService.buy()">
-        <i class="bi bi-x-lg"></i> Buy
-      </button>
   </div>
+
+
+  <div class="row mt-4">
+    <div class="col-md-12 text-center">
+      <h1>Total Price: {{moneyService.chosenCurrency}} {{ cartService.totalCost *
+        (moneyService.exchangeRates.get(moneyService.chosenCurrency) ?? 1.0) | number: '1.2-2' }}</h1>
+    </div>
+  <button type="button" class="btn btn-danger full-width" (click)="cartService.buy()">
+    <i class="bi bi-x-lg"></i> Buy
+  </button>
+</div>

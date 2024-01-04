@@ -16,6 +16,9 @@
 .almost-full{
     background-color: lightcoral;
 }
+.full-width{
+  width: 100%;
+}
 
 .corner-button {
   position:absolute;

@@ -93,6 +93,16 @@ export class TripsDbService {
         }
         this.safeGetMapValue(this.tripsMap, minPriceIndex).lowestPrice = true;
         return minPriceIndex;
+    }
 
+    getReservedCount(tripId: number): number {
+        return this.safeGetMapValue(this.tripsMap, tripId).reservedCount;
+    }
+
+    incrementReservedCount(tripId: number) {
+        this.safeGetMapValue(this.tripsMap, tripId).reservedCount++;
+    }
+    decrementReservedCount(tripId: number) {
+        this.safeGetMapValue(this.tripsMap, tripId).reservedCount--;
     }
 }
