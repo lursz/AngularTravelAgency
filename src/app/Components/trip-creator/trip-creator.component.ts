@@ -32,7 +32,8 @@ export class TripCreatorComponent {
       currency: '',
       max_participants: 0,
       description: '',
-      picture: ''
+      picture: '',
+      map: ''
     };
   }
 

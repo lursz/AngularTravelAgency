@@ -12,6 +12,8 @@ export class TripImporterService {
 
   constructor(http: HttpClient) {
     http.get<Trip[]>('/assets/trips_list.json').subscribe(result => {
+      console.log(result);
+
       this.trips = result;
       this.eventEmitter.emit();
     });

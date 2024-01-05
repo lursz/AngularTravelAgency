@@ -9,4 +9,5 @@ export interface Trip {
     max_participants: number;
     description: string;
     picture: string;
+    map: string;
 }
