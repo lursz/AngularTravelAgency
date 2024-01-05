@@ -5,7 +5,9 @@
     <!-- Img -->
     <div class="row">
       <div class="col-md-12 text-center">
-        <img [src]="trip.picture" alt="trip image" class="trip-img rounded-circle img-fluid">
+        <a routerLink="/trip-panel/{{trip.id}}" activeRouterLink="active">
+          <img [src]="trip.picture" alt="trip image" class="trip-img rounded-circle img-fluid">
+        </a>
       </div>
     </div>
 

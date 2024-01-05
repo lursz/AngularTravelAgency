@@ -5,11 +5,12 @@ import { TripCountingService, TripCountingState } from '../../Services/trip-coun
 import { TripsDbService } from '../../Services/trips-db.service';
 import { CartService } from '../../Services/cart.service';
 import { MoneyService } from '../../Services/money.service';
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-trip',
   standalone: true,
-  imports: [CommonModule, NgIf],
+  imports: [CommonModule, NgIf, RouterLink],
   providers: [],
   templateUrl: './trip.component.html',
   styleUrl: './trip.component.css'

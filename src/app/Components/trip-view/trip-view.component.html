@@ -1,1 +1,51 @@
-<p>trip-view works!</p>
+<div>
+    <div class="container card flex-fill">
+        <!-- Img -->
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img [src]="trip.picture" alt="trip image" class="trip-img rounded-circle img-fluid">
+            </div>
+        </div>
+
+        <!-- Info -->
+        <div class="row mt-4">
+            <div class="col-md-12 text-center">
+                <h1>{{ trip.name | uppercase }}</h1>
+                <h3>{{ trip.country }}</h3>
+                <p>{{moneyService.chosenCurrency}} {{ trip.price *
+                    (moneyService.exchangeRates.get(moneyService.chosenCurrency) ?? 1.0) | number: '1.2-2' }}</p>
+                <p>{{ trip.description }}</p>
+            </div>
+        </div>
+
+        <!-- Date -->
+        <div class="row mt-4">
+            <div class="col-md-6 text-center">
+                <p>Start Date: {{ trip.start_date }}</p>
+            </div>
+            <div class="col-md-6 text-center">
+                <p>End Date: {{ trip.end_date }}</p>
+            </div>
+        </div>
+
+        <!-- Max Participants and reserved spots-->
+        <div class="row mt-4">
+            <div class="col-md-6 text-center">
+                <p>Max Participants: {{ trip.max_participants }}</p>
+            </div>
+            <div class="col-md-6 text-center">
+                <p>Reserved Spots: {{ tripProperties.reservedCount }}</p>
+            </div>
+        </div>
+
+
+        <!-- Rate -->
+        <div class="p-2 col-12  text-center">
+            Rating: {{(this.tripProperties.ratingSum / this.tripProperties.ratingCount) | number: '1.2-2'}}
+            <div class="star-rating">
+                <span *ngFor="let star of [1,2,3,4,5]; let i = index" (click)="rateTrip(i + 1)"
+                    [ngClass]="{'selected': i < rating}">
+                    {{ i < rating ? '★' : '☆' }} </span>
+            </div>
+        </div>
+    </div>

@@ -10,7 +10,6 @@ export class TripsDbService {
     trips: Trip[] = [];
     tripsMap: Map<number, TripCountingState> = new Map<number, TripCountingState>();
     service: TripImporterService;
-    //   possibleRatingValues: number[] = [1, 2, 3, 4, 5];
     possibleCountries: string[] = [];
 
     safeGetMapValue(Map: Map<number, TripCountingState>, key: number): TripCountingState {

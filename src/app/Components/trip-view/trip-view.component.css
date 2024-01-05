@@ -1,0 +1,20 @@
+/* Star rating */
+.star-rating {
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  .star-rating span {
+    margin: 0 2px;
+  }
+
+  .star-rating span.selected {
+    color: black;
+  }
+
+  .trip-img {
+    --size: 20rem;
+    width: var(--size);
+    height: var(--size);
+    object-fit: cover;
+}
