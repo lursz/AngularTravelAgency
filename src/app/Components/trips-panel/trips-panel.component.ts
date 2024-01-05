@@ -8,16 +8,17 @@ import { find, max } from 'rxjs';
 import { TripsDbService } from '../../Services/trips-db.service';
 import { TripsCounterComponent } from "../trips-counter/trips-counter.component";
 import { TripFilterComponent } from "../trip-filter/trip-filter.component";
+import {NgxPaginationModule} from 'ngx-pagination'; 
 
 @Component({
     selector: 'app-trips-panel',
     standalone: true,
     templateUrl: './trips-panel.component.html',
     styleUrl: './trips-panel.component.css',
-    providers: [],
-    imports: [TripComponent, CommonModule, TripsCounterComponent, TripFilterComponent]
+    imports: [TripComponent, CommonModule, TripsCounterComponent, TripFilterComponent, NgxPaginationModule]
 })
 export class TripsPanelComponent {
+    p: number = 1;
 
     constructor(public TripsDB: TripsDbService) {
     }
