@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { MoneyService } from '../../Services/money.service';
 import { TripCountingService, TripCountingState } from '../../Services/trip-counting.service';
 import { TrustPipe } from "../../trust.pipe";
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-trip-view',
@@ -15,7 +16,7 @@ import { TrustPipe } from "../../trust.pipe";
     imports: [CommonModule, TrustPipe]
 })
 export class TripViewComponent {
-  constructor(private route: ActivatedRoute, public tripsDbService: TripsDbService, public moneyService: MoneyService, public tripCountingService: TripCountingService) { }
+  constructor(private route: ActivatedRoute, public tripsDbService: TripsDbService, public moneyService: MoneyService, public tripCountingService: TripCountingService, private sanitizer: DomSanitizer) { }
 
   trip: Trip = this.tripsDbService.trips[this.route.snapshot.params['id']];
   tripProperties: TripCountingState = this.tripsDbService.safeGetMapValue(this.tripsDbService.tripsMap, this.route.snapshot.params['id']);
@@ -24,6 +25,11 @@ export class TripViewComponent {
   rateTrip(value: number) {
     this.rating = value;
     this.tripsDbService.rateTrip(this.trip.id, this.rating);
+  }
+
+
+  get mapUrl(): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.trip.map);
   }
 
 }
