@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Trip } from '../Components/trip/trip_interface';
 import { TripCountingState } from './trip-counting.service';
 import { TripImporterService } from './trip-importer.service';
+import { Comment } from './trip-counting.service';
 
 @Injectable({
     providedIn: 'root'
@@ -41,6 +42,12 @@ export class TripsDbService {
         this.safeGetMapValue(this.tripsMap, tripId).ratingSum += rating;
         this.safeGetMapValue(this.tripsMap, tripId).ratingCount++;
         console.log(this.safeGetMapValue(this.tripsMap, tripId).ratingSum);
+    }
+
+    addComment(tripId: number, comment: Comment) {
+        this.safeGetMapValue(this.tripsMap, tripId).comments.push(comment);
+        console.log("here");
+        console.log(this.safeGetMapValue(this.tripsMap, tripId).comments);
     }
 
     loadPossibleCountries() {

@@ -52,4 +52,31 @@
                     {{ i < rating ? '★' : '☆' }} </span>
             </div>
         </div>
+
+
+        <!-- Comments -->
+        <div class="comments">
+            <h2>Comments</h2>
+            <div *ngIf="tripProperties.comments.length == 0">No comments yet.</div>
+            <div *ngFor="let comment of getComments()" class="comment">
+                <p><strong>{{comment.author}}</strong></p>
+                <p>{{comment.content}}</p>
+            </div>
+            <h3>Add a comment</h3>
+            <div class="new-comment form-group">
+                <form>
+                    <input type="text" id="author" name="author" class="form-control" placeholder="Your name"
+                        [(ngModel)]="newComment.author" required>
+                    <textarea id="content" name="content" class="form-control" placeholder="Your comment"
+                        [(ngModel)]="newComment.content" required></textarea>
+                    <input type="date" id="date" name="date" class="form-control" placeholder="Date"
+                        [(ngModel)]="newComment.date" required>
+                    <div class="row p-2">
+                        <button type="submit" class="btn btn-dark mt-2" (click)="addComment()">Add Comment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
     </div>

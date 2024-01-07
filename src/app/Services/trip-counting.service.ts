@@ -21,25 +21,14 @@ export class TripCountingService {
   }
 
 
-  hideOrShowTrip(tripsMap: Map<number, TripCountingState>, tripId: number, display: boolean) {
-    let tripCountingState = tripsMap.get(tripId);
-    if (tripCountingState) {
-      tripCountingState.display = display;
-    } else {
-      tripsMap.set(tripId, new TripCountingState(0, undefined, undefined, 0, 0, display));
-    }
-
-  }
-
-
-
-
-
-
 }
 
 
 /* -------------------------- Trip Counting State ------------------------- */
 export class TripCountingState {
-  constructor(public reservedCount: number, public lowestPrice?: boolean, public highestPrice?: boolean, public ratingSum: number = 0, public ratingCount: number = 0, public display: boolean = true) { }
+  constructor(public reservedCount: number, public lowestPrice?: boolean, public highestPrice?: boolean, public ratingSum: number = 0, public ratingCount: number = 0, public comments: Comment[] = [], public display: boolean = true) { }
+}
+
+export class Comment {
+  constructor(public author: string, public content: string, public date: Date = new Date()) { }
 }
