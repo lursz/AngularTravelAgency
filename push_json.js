@@ -1,6 +1,9 @@
 #!/usr/bin/node
 const admin = require('firebase-admin');
 
+// npm install firebase
+// npm instll firebase-admin
+
 admin.initializeApp({
     credential: admin.credential.cert("key.json")
 });
@@ -143,9 +146,20 @@ const data = {
 };
 
 const promises = [];
-const dataArray = Object.entries(data);
 
-dataArray.forEach(d => {
-    promises.push(admin.firestore().collection('abc').doc(d[0]).set(d[1]));
-})
-Promise.all(promises);
+// Access the "trips" property directly
+data.trips.forEach((trip, index) => {
+    promises.push(admin.firestore().collection('trips').doc(index.toString()).set(trip));
+});
+
+Promise.all(promises)
+    .then(() => {
+        console.log('All documents added successfully');
+        process.exit(0);
+    })
+    .catch((error) => {
+        console.error('Error adding documents:', error);
+        process.exit(1);
+    });
+
+    // node push_json.js

@@ -32,7 +32,7 @@ export class TripCreatorComponent {
       currency: '',
       max_participants: 0,
       description: '',
-      picture: '',
+      picture: [],
       map: ''
     };
   }
@@ -71,7 +71,7 @@ export class TripCreatorComponent {
       return false;
     }
 
-    if (this.trip.picture === '') {
+    if (this.trip.picture[0] === '') {
       alert('Image cannot be empty');
       return false;
     }
@@ -98,7 +98,7 @@ export class TripCreatorComponent {
 
 
     try {
-      new URL(this.trip.picture);
+      new URL(this.trip.picture[0]);
     } catch (_) {
       alert('Image must be a valid URL');
       return false;
