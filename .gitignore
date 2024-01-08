@@ -38,6 +38,8 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
+key.json
+.angularos/
 
 # System files
 .DS_Store
@@ -46,3 +48,8 @@ Thumbs.db
 # Hidden Folders
 **/.angular
 .angular
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

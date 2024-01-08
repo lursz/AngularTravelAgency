@@ -46,7 +46,6 @@ export class TripsDbService {
 
     addComment(tripId: number, comment: Comment) {
         this.safeGetMapValue(this.tripsMap, tripId).comments.push(comment);
-        console.log("here");
         console.log(this.safeGetMapValue(this.tripsMap, tripId).comments);
     }
 

@@ -1,13 +1,13 @@
 <div class="container">
   <app-trips-counter></app-trips-counter>
   <app-trip-filter></app-trip-filter>
+  
   <div class="text-center">
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
   <div class="d-flex flex-wrap flex-row">
 
-
-    <div *ngFor="let trip of getTrips() | paginate: { itemsPerPage: 3, currentPage: p }; let i = index"
+    <div *ngFor="let trip of getTrips() | paginate: { itemsPerPage: 6, currentPage: p }; let i = index"
       class="col-lg-4 col-md-6 mb-4 d-flex">
       <app-trip [trip]="trip" [tripProperties]="TripsDB.safeGetMapValue(TripsDB.tripsMap, trip.id)"
         (removeTripEvent)="TripsDB.removeTrip(i)"></app-trip>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "TravelAgency": {
+    "travelagency": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -28,7 +28,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
           },
           "configurations": {
             "production": {
@@ -58,10 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "TravelAgency:build:production"
+              "buildTarget": "travelagency:build:production"
             },
             "development": {
-              "buildTarget": "TravelAgency:build:development"
+              "buildTarget": "travelagency:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -69,7 +69,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "TravelAgency:build"
+            "buildTarget": "travelagency:build"
           }
         },
         "test": {
@@ -89,6 +89,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "travelagency:build:production",
+              "serveTarget": "travelagency:serve:production"
+            },
+            "development": {
+              "buildTarget": "travelagency:build:development",
+              "serveTarget": "travelagency:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

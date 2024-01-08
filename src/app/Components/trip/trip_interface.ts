@@ -8,6 +8,6 @@ export interface Trip {
     currency: string;
     max_participants: number;
     description: string;
-    picture: string;
+    picture: string[];
     map: string;
 }

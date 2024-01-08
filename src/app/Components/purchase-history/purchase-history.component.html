@@ -1,9 +1,9 @@
-<h1>Purchase History</h1>
 <div class="container">
+  <h1 class="text-center">Purchase History</h1>
     <div class="row">
       <div class="col-md-12">
         <div class="card" *ngFor="let trip of purchaseHistoryService.items">
-          <img [src]="trip.picture" class="card-img-top" alt="{{ trip.name }} Image">
+          <img [src]="trip.picture[0]" class="card-img-top" alt="{{ trip.name }} Image">
           <div class="card-body">
             <h5 class="card-title">{{ trip.name }}</h5>
             <p class="card-text">{{ trip.description }}</p>

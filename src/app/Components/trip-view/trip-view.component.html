@@ -1,11 +1,22 @@
 <div>
     <div class="container card flex-fill">
         <!-- Img -->
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <img [src]="trip.picture" alt="trip image" class="trip-img rounded-circle img-fluid">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div *ngFor="let image of trip.picture" class="carousel-item" [ngClass]="{'active': image === trip.picture[0]}">
+                    <img [src]="image" class="d-block w-100" alt="...">
+                </div>
             </div>
-        </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+          </div>
+
 
         <!-- Info -->
         <div class="row mt-4">
@@ -38,11 +49,7 @@
             </div>
         </div>
 
-        <!-- Map -->
-        <div class="map">
-            <iframe [src]="mapUrl" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+
         <!-- Rate -->
         <div class="p-2 col-12  text-center">
             Rating: {{(this.tripProperties.ratingSum / this.tripProperties.ratingCount) | number: '1.2-2'}}
@@ -57,9 +64,8 @@
         <!-- Comments -->
         <div class="comments">
             <h2>Comments</h2>
-            <div *ngIf="tripProperties.comments.length == 0">No comments yet.</div>
             <div *ngFor="let comment of getComments()" class="comment">
-                <p><strong>{{comment.author}}</strong></p>
+                <p><b>{{comment.author}}</b></p>
                 <p>{{comment.content}}</p>
             </div>
             <h3>Add a comment</h3>
@@ -79,4 +85,11 @@
         </div>
 
 
+        
     </div>
+        
+        <!-- Map -->
+        <div class="map">
+            <iframe [src]="mapUrl" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>

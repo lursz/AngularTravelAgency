@@ -1,4 +1,4 @@
-<div class="p-2">
+<div class="p-2 container">
   <form>
     <h2>Create a new trip!</h2>
     <div class="form-group">
@@ -55,7 +55,7 @@
         <label for="image-url">Image URL</label>
         <div>
           <input name="image" type="text" class="form-control" id="image-url" placeholder="Image URL"
-            [(ngModel)]="trip.picture">
+            [(ngModel)]="trip.picture[0]">
         </div>
       </div>
       <div class="row p-2">
