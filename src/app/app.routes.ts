@@ -5,6 +5,8 @@ import { TripCreatorComponent } from './Components/trip-creator/trip-creator.com
 import { CartComponent } from './Components/cart/cart.component';
 import { PurchaseHistoryComponent } from './Components/purchase-history/purchase-history.component';
 import { TripViewComponent } from './Components/trip-view/trip-view.component';
+import {AngularFireModule} from '@angular/fire/compat';
+import {environment} from '../environments/environment';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "travelagency-fa39e": {
+      "hosting": {
+        "travelagency": [
+          "travelagency-fa39e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "travelagency-fa39e"
+  }
+}
