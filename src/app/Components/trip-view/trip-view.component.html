@@ -64,9 +64,8 @@
         <!-- Comments -->
         <div class="comments">
             <h2>Comments</h2>
-            <div *ngIf="tripProperties.comments.length == 0">No comments yet.</div>
             <div *ngFor="let comment of getComments()" class="comment">
-                <p><strong>{{comment.author}}</strong></p>
+                <p><b>{{comment.author}}</b></p>
                 <p>{{comment.content}}</p>
             </div>
             <h3>Add a comment</h3>
@@ -90,7 +89,7 @@
     </div>
         
         <!-- Map -->
-        <!-- <div class="map">
+        <div class="map">
             <iframe [src]="mapUrl" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div> -->
+        </div>
