@@ -18,7 +18,6 @@ export const environment = {
     }
 }
 
-
 // const firebaseConfig = {
 //   apiKey: "AIzaSyD5QhAucNRudnqHhbn-f9Yy3c7ObLGPlic",
 //   authDomain: "travelagency-fa39e.firebaseapp.com",
