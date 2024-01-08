@@ -36,3 +36,11 @@
     border: none; 
   }
 }
+
+
+
+.carousel-inner img {
+  object-fit: cover;
+  height: 50rem; 
+  width: 100%;
+}
