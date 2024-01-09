@@ -23,13 +23,16 @@ export class TripViewComponent {
   tripProperties: TripCountingState = this.tripsDbService.safeGetMapValue(this.tripsDbService.tripsMap, this.route.snapshot.params['id']);
   tripRatings: RatingState = this.tripsDbService.safeGetRatingMapValue(this.tripsDbService.ratingMap, this.route.snapshot.params['id']);
   rating: number = 0;
-  newComment: Comment = new Comment('', '', new Date());
+  newComment: Comment = new Comment('', '', '');
+  dateObject: Date = new Date();
 
 
   addComment() {
-    console.log(this.newComment);
+    // this.newComment.date = this.dateObject.toLocaleDateString();
     this.tripsDbService.addComment(this.trip.id, this.newComment);
-    this.newComment = new Comment('', '', new Date());
+    this.newComment = new Comment('', '', '');
+    this.dateObject = new Date();
+    alert('Comment added!');
   }
 
   getComments(): Comment[] {

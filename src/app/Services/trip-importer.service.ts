@@ -2,9 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, inject } from '@angular/core';
 import { Trip } from '../Components/trip/trip_interface';
 import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
-import {collection, deleteDoc, doc, Firestore, getDocs, setDoc,} from "@angular/fire/firestore";
+import {collection, deleteDoc, doc, Firestore, getDocs, setDoc, updateDoc, arrayUnion} from "@angular/fire/firestore";
 import { from } from 'rxjs';
 import { RatingState } from './trip-counting.service';
+import { Comment } from './trip-counting.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -25,23 +27,35 @@ export class TripImporterService {
       });
     }
     );
-    // from(getDocs(collection(this.firestore, 'ratings'))).subscribe((querySnapshot) => {
-    //   querySnapshot.forEach((doc) => {
-    //     this.ratings.set(Number(doc.id), doc.data() as RatingState);
-    //   });
-    // }
-    // );
-    // console.log(this.ratings);
+    from(getDocs(collection(this.firestore, 'rating'))).subscribe((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        this.ratings.set(Number(doc.id), doc.data() as RatingState);
+      });
+    }
+    );
   }
 
   addTrip(trip: Trip) {
-    console.log(trip.id.toString());
     setDoc(doc(this.firestore, 'trips', trip.id.toString()), trip);
   }
 
   removeTrip(trip: Trip) {
     deleteDoc(doc(this.firestore, 'trips', trip.id.toString()));
   }
+
+
+ addComment(tripId: number, comment: Comment) {
+  const ratingRef = doc(this.firestore, 'rating', tripId.toString());
+
+    updateDoc(ratingRef, {
+      comments: arrayUnion(comment)
+    });
+  }
+
+  // addComment(tripId: number, comment: Comment) {
+  //   // add comment to firebase to id to comments array
+  //   setDoc(doc(this.firestore, 'rating', tripId.toString()), 
+  // }
   
   // constructor(http: HttpClient) {
   //   http.get<Trip[]>('/assets/trips_list.json').subscribe(result => {
@@ -50,8 +64,4 @@ export class TripImporterService {
   //   });
   // }
 
-
-  getTrips() {
-    return this.trips;
-  }
 }

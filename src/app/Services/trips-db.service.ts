@@ -29,11 +29,12 @@ export class TripsDbService {
     }
 
     init(service: TripImporterService) {
-        this.trips = this.service.getTrips();
+        this.trips = this.service.trips;
         for (let i = 0; i < this.trips.length; i++) {
             this.trips[i].id = i;
             this.tripsMap.set(i, new TripCountingState(0, undefined, undefined));
         }
+        this.ratingMap = this.service.ratings;
         this.getMostExpensiveTrip();
         this.getCheapestTrip();
         this.loadPossibleCountries();
@@ -52,6 +53,7 @@ export class TripsDbService {
     }
 
     addComment(tripId: number, comment: Comment) {
+        this.service.addComment(tripId, comment); //firebase
         this.safeGetRatingMapValue(this.ratingMap, tripId).comments.push(comment);
     }
 
