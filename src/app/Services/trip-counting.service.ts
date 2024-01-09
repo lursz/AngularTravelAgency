@@ -26,7 +26,12 @@ export class TripCountingService {
 
 /* -------------------------- Trip Counting State ------------------------- */
 export class TripCountingState {
-  constructor(public reservedCount: number, public lowestPrice?: boolean, public highestPrice?: boolean, public ratingSum: number = 0, public ratingCount: number = 0, public comments: Comment[] = [], public display: boolean = true) { }
+  constructor(public reservedCount: number, public lowestPrice?: boolean, public highestPrice?: boolean, public display: boolean = true) { }
+  // constructor(public reservedCount: number, public lowestPrice?: boolean, public highestPrice?: boolean, public ratingSum: number = 0, public ratingCount: number = 0, public comments: Comment[] = [], public display: boolean = true) { }
+}
+
+export class RatingState {
+  constructor(public ratingSum: number = 0, public ratingCount: number = 0, public comments: Comment[]) { }
 }
 
 export class Comment {

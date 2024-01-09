@@ -52,7 +52,7 @@
 
         <!-- Rate -->
         <div class="p-2 col-12  text-center">
-            Rating: {{(this.tripProperties.ratingSum / this.tripProperties.ratingCount) | number: '1.2-2'}}
+            Rating: {{(this.tripRatings.ratingSum / this.tripRatings.ratingCount) | number: '1.2-2'}}
             <div class="star-rating">
                 <span *ngFor="let star of [1,2,3,4,5]; let i = index" (click)="rateTrip(i + 1)"
                     [ngClass]="{'selected': i < rating}">

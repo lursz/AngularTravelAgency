@@ -34,8 +34,8 @@ export class TripFilterService {
       let priceToMatch = filter.priceTo ? trip.price <= filter.priceTo : true;
       let priceMatch = priceFromMatch && priceToMatch;
 
-      let currentSum = this.tripDbService.safeGetMapValue(this.tripDbService.tripsMap, trip.id).ratingSum;
-      let currentCount = this.tripDbService.safeGetMapValue(this.tripDbService.tripsMap, trip.id).ratingCount;
+      let currentSum = this.tripDbService.safeGetRatingMapValue(this.tripDbService.ratingMap, trip.id).ratingSum;
+      let currentCount = this.tripDbService.safeGetRatingMapValue(this.tripDbService.ratingMap, trip.id).ratingCount;
       let ratingMatch = filter.rating.some(t => t) ? currentCount !== 0 && filter.rating[Math.round(currentSum / currentCount) - 1] : true;
       this.tripDbService.safeGetMapValue(this.tripDbService.tripsMap, trip.id).display = countryMatch && dateMatch && priceMatch && ratingMatch;
     }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Trip } from '../Components/trip/trip_interface';
-import { TripCountingState } from './trip-counting.service';
+import { RatingState, TripCountingState } from './trip-counting.service';
 import { TripImporterService } from './trip-importer.service';
 import { Comment } from './trip-counting.service';
 
@@ -9,6 +9,7 @@ import { Comment } from './trip-counting.service';
 })
 export class TripsDbService {
     trips: Trip[] = [];
+    ratingMap: Map<number, RatingState> = new Map<number, RatingState>();
     tripsMap: Map<number, TripCountingState> = new Map<number, TripCountingState>();
     service: TripImporterService;
     possibleCountries: string[] = [];
@@ -18,6 +19,13 @@ export class TripsDbService {
         if (value)
             return value;
         return new TripCountingState(0, undefined, undefined);
+    }
+
+    safeGetRatingMapValue(Map: Map<number, RatingState>, key: number): RatingState {
+        let value = Map.get(key);
+        if (value)
+            return value;
+        return new RatingState(0, 0, []);
     }
 
     init(service: TripImporterService) {
@@ -39,14 +47,12 @@ export class TripsDbService {
     }
 
     rateTrip(tripId: number, rating: number) {
-        this.safeGetMapValue(this.tripsMap, tripId).ratingSum += rating;
-        this.safeGetMapValue(this.tripsMap, tripId).ratingCount++;
-        console.log(this.safeGetMapValue(this.tripsMap, tripId).ratingSum);
+        this.safeGetRatingMapValue(this.ratingMap, tripId).ratingSum += rating;
+        this.safeGetRatingMapValue(this.ratingMap, tripId).ratingCount++;
     }
 
     addComment(tripId: number, comment: Comment) {
-        this.safeGetMapValue(this.tripsMap, tripId).comments.push(comment);
-        console.log(this.safeGetMapValue(this.tripsMap, tripId).comments);
+        this.safeGetRatingMapValue(this.ratingMap, tripId).comments.push(comment);
     }
 
     loadPossibleCountries() {

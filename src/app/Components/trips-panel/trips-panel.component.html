@@ -7,7 +7,7 @@
   <div class="aside col-md-3">
     <div class="row">
       <div class="col-md-12">
-        <div class="card" *ngFor="let trip of cartService.items">
+        <div class="" *ngFor="let trip of cartService.items">
           <div class="row">
             <h5 class="card-title">{{ trip.name }}</h5>
             <ul class="list-group list-group-flush">
@@ -29,7 +29,7 @@
   <div class="d-flex flex-wrap flex-row">
     <div *ngFor="let trip of getTrips() | paginate: { itemsPerPage: 6, currentPage: p }; let i = index"
       class="col-lg-4 col-md-6 mb-4 d-flex">
-      <app-trip [trip]="trip" [tripProperties]="TripsDB.safeGetMapValue(TripsDB.tripsMap, trip.id)"
+      <app-trip [trip]="trip" [tripProperties]="TripsDB.safeGetMapValue(TripsDB.tripsMap, trip.id)" [tripRatings]="TripsDB.safeGetRatingMapValue(TripsDB.ratingMap, trip.id)"
         (removeTripEvent)="TripsDB.removeTrip(i)"></app-trip>
     </div>
   </div>

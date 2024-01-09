@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule, NgIf } from '@angular/common';
 import { Trip } from './trip_interface';
-import { TripCountingService, TripCountingState } from '../../Services/trip-counting.service';
+import { RatingState, TripCountingService, TripCountingState } from '../../Services/trip-counting.service';
 import { TripsDbService } from '../../Services/trips-db.service';
 import { CartService } from '../../Services/cart.service';
 import { MoneyService } from '../../Services/money.service';
@@ -18,6 +18,7 @@ import {RouterLink} from "@angular/router";
 export class TripComponent {
   @Input() trip!: Trip;
   @Input() tripProperties!: TripCountingState;
+  @Input() tripRatings!: RatingState;
   @Output() removeTripEvent = new EventEmitter<number>();
   rating: number = 0;
   stars: number[] = [1, 2, 3, 4, 5];

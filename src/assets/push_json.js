@@ -8,7 +8,7 @@ admin.initializeApp({
     credential: admin.credential.cert("key.json")
 });
 
-const data = {
+const data1 = {
     "trips": [
         {
             "id": 0,
@@ -156,11 +156,150 @@ const data = {
     ]
 };
 
+const data = {
+    "ratings" : [
+        {
+            "trip_id": 0,
+            "ratingSum": 0,
+            "ratingCount": 0,
+            "comments": [
+              {
+                "author": "WanderlustExplorer",
+                "content": "Absolutely breathtaking! The beauty of [Country] left me speechless. Every corner I turned revealed a new adventure. Can't wait to go back!",
+                "date": "2024-01-09"
+              }
+            ]
+          },
+          {
+            "trip_id": 0,
+            "ratingSum": 0,
+            "ratingCount": 0,
+            "comments": [
+              {
+                "author": "GlobeTrotter123",
+                "content": "Incredible cultural immersion in [Country]. The people, the food, the landscapes – everything exceeded my expectations. A must-visit destination!",
+                "date": "2024-01-09"
+              }
+            ]
+          },
+          {
+            "trip_id": 0,
+            "ratingSum": 0,
+            "ratingCount": 0,
+            "comments": [
+              {
+                "author": "AdventureSeeker",
+                "content": "Unforgettable experience in [Country]! From historic landmarks to hidden gems, every moment was filled with awe and wonder. Can't recommend it enough!",
+                "date": "2024-01-09"
+              }
+            ]
+          },
+          {
+            "trip_id": 0,
+            "ratingSum": 0,
+            "ratingCount": 0,
+            "comments": [
+              {
+                "author": "Jetsetter567",
+                "content": "A journey of a lifetime in [Country]. The diversity of landscapes, the warmth of the locals, and the rich history made this trip truly special. Already planning my next visit!",
+                "date": "2024-01-09"
+              }
+            ]
+          },
+          {
+            "trip_id": 0,
+            "ratingSum": 0,
+            "ratingCount": 0,
+            "comments": [
+              {
+                "author": "TravelEnthusiast",
+                "content": "Just returned from [Country] and I'm still in awe. The perfect blend of tradition and modernity, coupled with friendly locals, made it an incredible adventure. Highly recommend exploring this gem!",
+                "date": "2024-01-09"
+              }
+            ]
+          },
+          {
+            "trip_id": 0,
+            "ratingSum": 0,
+            "ratingCount": 0,
+            "comments": [
+              {
+                "author": "NomadicDreamer",
+                "content": "I fell in love with [Country]! The cultural richness, the delicious cuisine, and the hospitality of the people made it an unforgettable journey. Can't wait to share my experiences with others!",
+                "date": "2024-01-09"
+              }
+            ]
+          },
+          {
+            "trip_id": 0,
+            "ratingSum": 0,
+            "ratingCount": 0,
+            "comments": [
+              {
+                "author": "DiscoveringWorlds",
+                "content": "From ancient wonders to vibrant markets, [Country] has it all. Every moment felt like a page from a storybook. Highly recommended for fellow explorers!",
+                "date": "2024-01-09"
+              }
+            ]
+          },
+          {
+            "trip_id": 0,
+            "ratingSum": 0,
+            "ratingCount": 0,
+            "comments": [
+              {
+                "author": "WorldTraveler",
+                "content": "I've been to [Country] several times and I'm still discovering new things to love about it. The people, the food, the culture – everything is amazing. Definitely worth a visit!",
+                "date": "2024-01-09"
+              }
+            ]
+          },
+          {
+            "trip_id": 1,
+            "ratingSum": 0,
+            "ratingCount": 0,
+            "comments": [
+              {
+                "author": "WanderlustExplorer",
+                "content": "Absolutely breathtaking! The beauty of [Country] left me speechless. Every corner I turned revealed a new adventure. Can't wait to go back!",
+                "date": "2024-01-09"
+              }
+            ]
+          },
+          {
+            "trip_id": 1,
+            "ratingSum": 0,
+            "ratingCount": 0,
+            "comments": [
+              {
+                "author": "GlobeTrotter123",
+                "content": "Incredible cultural immersion in [Country]. The people, the food, the landscapes – everything exceeded my expectations. A must-visit destination!",
+                "date": "2024-01-09"
+              }
+            ]
+          },
+          {
+            "trip_id": 1,
+            "ratingSum": 0,
+            "ratingCount": 0,
+            "comments": [
+              {
+                "author": "AdventureSeeker",
+                "content": "Unforgettable experience in [Country]! From historic landmarks to hidden gems, every moment was filled with awe and wonder. Can't recommend it enough!",
+                "date": "2024-01-09"
+                }
+                ]
+            }
+    ]
+
+
+};
+
 const promises = [];
 
 // Access the "trips" property directly
-data.trips.forEach((trip, index) => {
-    promises.push(admin.firestore().collection('trips').doc(index.toString()).set(trip));
+data.ratings.forEach((trip, index) => {
+    promises.push(admin.firestore().collection('rating').doc(index.toString()).set(trip));
 });
 
 Promise.all(promises)
