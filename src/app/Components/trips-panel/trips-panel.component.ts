@@ -1,3 +1,5 @@
+import { MoneyService } from './../../Services/money.service';
+import { CartService } from './../../Services/cart.service';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { TripImporterService } from '../../Services/trip-importer.service';
@@ -20,7 +22,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 export class TripsPanelComponent {
     p: number = 1;
 
-    constructor(public TripsDB: TripsDbService) {
+    constructor(public TripsDB: TripsDbService, public cartService: CartService, public moneyService: MoneyService) {
     }
 
     getTrips(): Trip[] {

@@ -111,9 +111,7 @@ export class TripCreatorComponent {
     if (!this.validateForm()) {
       return;
     }
+    alert('Trip created successfully');
     this.TripsDB.addTrip(this.trip);
-    for (const trip of this.TripsDB.trips) {
-      console.log(trip);
-    }
   }
 }

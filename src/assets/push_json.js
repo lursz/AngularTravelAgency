@@ -11,6 +11,7 @@ admin.initializeApp({
 const data = {
     "trips": [
         {
+            "id": 0,
             "name": "Sunny Spanish Coast",
             "country": "Spain",
             "start_date": "2023-06-01",
@@ -23,6 +24,7 @@ const data = {
             "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95780.6243159463!2d2.1401890999999997!3d41.392667949999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a49816718e30e5%3A0x44b0fb3d4f47660a!2sBarcelona%2C%20Prowincja%20Barcelona%2C%20Hiszpania!5e0!3m2!1spl!2spl!4v1704454125907!5m2!1spl!2spl"
         },
         {
+            "id": 1,
             "name": "Magnificent Norwegian Fjords",
             "country": "Norway",
             "start_date": "2023-07-01",
@@ -35,6 +37,7 @@ const data = {
             "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1598314.774714403!2d4.1005532455957345!3d60.14864381187459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x463e0f406f7fbb4b%3A0x81a0dd61122025d3!2zTsOmcsO4eWZqb3JkZW4!5e0!3m2!1spl!2spl!4v1704454448197!5m2!1spl!2spl"
         },
         {
+            "id": 2,
             "name": "Beautiful Greek Islands",
             "country": "Greece",
             "start_date": "2023-08-01",
@@ -47,6 +50,7 @@ const data = {
             "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d834136.827747699!2d24.25269656267934!3d35.24762257294904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x149afe2f827d98a1%3A0x100bd2ce2b9c630!2sKreta%2C%20Grecja!5e0!3m2!1spl!2spl!4v1704454526828!5m2!1spl!2spl"
         },
         {
+            "id": 3,
             "name": "Amazing Italian Lakes",
             "country": "Italy",
             "start_date": "2023-09-01",
@@ -59,6 +63,7 @@ const data = {
             "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d703963.5543404934!2d11.274202215298452!3d46.43170129718428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47784148229089d9%3A0x42b5e7b17c12fccb!2sFedaia%20Lake!5e0!3m2!1spl!2spl!4v1704454678411!5m2!1spl!2spl"
         },
         {
+            "id": 4,
             "name": "Beautiful Croatian Coast",
             "country": "Croatia",
             "start_date": "2023-10-01",
@@ -71,6 +76,7 @@ const data = {
             "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46294.51009851758!2d16.41788788850043!3d43.51470729892955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13355dfc6bbcf517%3A0xa1798ff631b49f98!2sSplit%2C%20Chorwacja!5e0!3m2!1spl!2spl!4v1704454721327!5m2!1spl!2spl"
         },
         {
+            "id": 5,
             "name": "Stellar Icelandic Northern Lights",
             "country": "Iceland",
             "start_date": "2023-11-01",
@@ -83,6 +89,7 @@ const data = {
             "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55701.06788771712!2d-21.934841532668404!3d64.1335419833342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48d674b9eedcedc3%3A0xec912ca230d26071!2sRejkiawik%2C%20Islandia!5e0!3m2!1spl!2spl!4v1704454801454!5m2!1spl!2spl"
         },
         {
+            "id": 6,
             "name": "Amazing Swiss Alps",
             "country": "Switzerland",
             "start_date": "2023-12-01",
@@ -95,6 +102,7 @@ const data = {
             "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10973.485701031164!2d8.550778376687358!3d46.56011984201111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478576eb2f97f733%3A0x41140a31bc0c273!2sAlpy%20Szwajcarskie!5e0!3m2!1spl!2spl!4v1704454854175!5m2!1spl!2spl"
         },
         {
+            "id": 7,
             "name": "Life-changing African Safari",
             "country": "Kenya",
             "start_date": "2024-01-01",
@@ -107,6 +115,7 @@ const data = {
             "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6083740.738744932!2d31.570969235730548!3d-3.5847724085955885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1832cdd680dac6d1%3A0x2ea157f39deb3945!2sPark%20Narodowy%20Serengeti!5e0!3m2!1spl!2spl!4v1704454966583!5m2!1spl!2spl"
         },
         {
+            "id": 8,
             "name": "Amazing Australian Outback",
             "country": "Australia",
             "start_date": "2024-02-01",
@@ -119,6 +128,7 @@ const data = {
             "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14423.063348835425!2d131.02684611915953!3d-25.345637499561402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b236c2b6d625223%3A0x43a8cd4d9bc55f21!2sUluru!5e0!3m2!1spl!2spl!4v1704455004302!5m2!1spl!2spl"
         },
         {
+            "id": 9,
             "name": "Amazing New Zealand",
             "country": "New Zealand",
             "start_date": "2024-03-01",
@@ -131,6 +141,7 @@ const data = {
             "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6041033.719109799!2d167.306657092481!3d-42.327095973576554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa9d40e4b61332aab%3A0xf62f33e5bd24b7ba!2sFiordland%20National%20Park!5e0!3m2!1spl!2spl!4v1704455115409!5m2!1spl!2spl"
         },
         {
+            "id": 10,
             "name": "Pulsating with life Amsterdam",
             "country": "Netherlands",
             "start_date": "2024-04-01",

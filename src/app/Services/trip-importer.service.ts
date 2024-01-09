@@ -24,7 +24,15 @@ export class TripImporterService {
     );
   }
 
+  addTrip(trip: Trip) {
+    console.log(trip.id.toString());
+    setDoc(doc(this.firestore, 'trips', trip.id.toString()), trip);
+  }
 
+  removeTrip(trip: Trip) {
+    deleteDoc(doc(this.firestore, 'trips', trip.id.toString()));
+  }
+  
   // constructor(http: HttpClient) {
   //   http.get<Trip[]>('/assets/trips_list.json').subscribe(result => {
   //     this.trips = result;

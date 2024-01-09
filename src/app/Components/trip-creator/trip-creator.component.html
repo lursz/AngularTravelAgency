@@ -58,6 +58,13 @@
             [(ngModel)]="trip.picture[0]">
         </div>
       </div>
+      <div class="row">
+        <label for="map-url">Map URL</label>
+        <div>
+          <input name="map" type="text" class="form-control" id="map-url" placeholder="Map URL" [(ngModel)]="trip.map">
+        </div>
+      </div>
+
       <div class="row p-2">
         <button type="submit" class="btn btn-dark" (click)="createTrip()">Create Trip</button>
       </div>

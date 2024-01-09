@@ -60,12 +60,15 @@ export class TripsDbService {
     addTrip(trip: Trip) {
         trip.id = this.trips.length;
         this.trips.push(trip);
+        this.service.addTrip(trip); //firebase
         this.tripsMap.set(this.trips.length - 1, new TripCountingState(0, undefined, undefined));
         this.getMostExpensiveTrip();
         this.getCheapestTrip();
+        
     }
 
     removeTrip(tripId: number) {
+        this.service.removeTrip(this.trips[tripId]); //firebase
         this.trips.splice(tripId, 1);
         this.tripsMap.delete(tripId);
         this.getMostExpensiveTrip();
