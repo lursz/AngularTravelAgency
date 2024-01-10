@@ -76,7 +76,7 @@
                     <textarea id="content" name="content" class="form-control" placeholder="Your comment"
                         [(ngModel)]="newComment.content" required></textarea>
                     <input type="date" id="date" name="date" class="form-control" placeholder="Date"
-                        [(ngModel)]="dateObject" required>
+                        [(ngModel)]="newComment.date" required>
                     <div class="row p-2">
                         <button type="submit" class="btn btn-dark mt-2" (click)="addComment()">Add Comment</button>
                     </div>

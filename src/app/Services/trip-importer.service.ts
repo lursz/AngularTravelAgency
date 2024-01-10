@@ -46,17 +46,14 @@ export class TripImporterService {
 
  addComment(tripId: number, comment: Comment) {
   const ratingRef = doc(this.firestore, 'rating', tripId.toString());
+  const dataToSend = {"author": comment.author, "content": comment.content, "date": comment.date};
+  updateDoc(ratingRef, {
+    comments: arrayUnion(dataToSend)
+  });
 
-    updateDoc(ratingRef, {
-      comments: arrayUnion(comment)
-    });
   }
 
-  // addComment(tripId: number, comment: Comment) {
-  //   // add comment to firebase to id to comments array
-  //   setDoc(doc(this.firestore, 'rating', tripId.toString()), 
-  // }
-  
+
   // constructor(http: HttpClient) {
   //   http.get<Trip[]>('/assets/trips_list.json').subscribe(result => {
   //     this.trips = result;
