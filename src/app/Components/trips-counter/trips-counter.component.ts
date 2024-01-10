@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { TripCountingService } from '../../Services/trip-counting.service';
+import {Component} from '@angular/core';
+import {TripCountingService} from '../../Services/trip-counting.service';
 
 @Component({
   selector: 'app-trips-counter',

@@ -1,10 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule, NgIf } from '@angular/common';
-import { Trip } from './trip_interface';
-import { RatingState, TripCountingService, TripCountingState } from '../../Services/trip-counting.service';
-import { TripsDbService } from '../../Services/trips-db.service';
-import { CartService } from '../../Services/cart.service';
-import { MoneyService } from '../../Services/money.service';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {CommonModule, NgIf} from '@angular/common';
+import {Trip} from './trip_interface';
+import {RatingState, TripCountingService, TripCountingState} from '../../Services/trip-counting.service';
+import {TripsDbService} from '../../Services/trips-db.service';
+import {CartService} from '../../Services/cart.service';
+import {MoneyService} from '../../Services/money.service';
 import {RouterLink} from "@angular/router";
 
 @Component({
@@ -36,6 +36,7 @@ export class TripComponent {
     }
 
   }
+
   subtractReservedCount() {
     if (this.tripProperties.reservedCount > 0) {
       this.tripProperties.reservedCount--;
@@ -46,7 +47,7 @@ export class TripComponent {
     }
   }
 
- rateTrip(value: number) {
+  rateTrip(value: number) {
     this.rating = value;
     this.tripDB.rateTrip(this.trip.id, this.rating);
   }

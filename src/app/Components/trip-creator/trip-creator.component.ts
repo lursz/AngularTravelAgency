@@ -1,11 +1,10 @@
-import { TripsDbService } from '../../Services/trips-db.service';
-import { TripsPanelComponent } from '../trips-panel/trips-panel.component';
-import { Component, Input } from '@angular/core';
-import { FormsModule } from "@angular/forms";
+import {TripsDbService} from '../../Services/trips-db.service';
+import {Component} from '@angular/core';
+import {FormsModule} from "@angular/forms";
 
-import { Trip } from '../trip/trip_interface';
-import { MoneyService } from "../../Services/money.service";
-import { NgForOf } from "@angular/common";
+import {Trip} from '../trip/trip_interface';
+import {MoneyService} from "../../Services/money.service";
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-trip-creator',
@@ -48,7 +47,6 @@ export class TripCreatorComponent {
     this.trip.end_date = tempDate.join("-");
     console.log(this.trip.start_date);
     console.log(this.trip.end_date);
-
 
 
     if (this.trip.name === '') {

@@ -1,22 +1,22 @@
 /* Star rating */
 .star-rating {
-    font-size: 2rem;
-    cursor: pointer;
-  }
-  
-  .star-rating span {
-    margin: 0 2px;
-  }
+  font-size: 2rem;
+  cursor: pointer;
+}
 
-  .star-rating span.selected {
-    color: black;
-  }
+.star-rating span {
+  margin: 0 2px;
+}
 
-  .trip-img {
-    --size: 20rem;
-    width: var(--size);
-    height: var(--size);
-    object-fit: cover;
+.star-rating span.selected {
+  color: black;
+}
+
+.trip-img {
+  --size: 20rem;
+  width: var(--size);
+  height: var(--size);
+  object-fit: cover;
 }
 
 /* Define the map class */
@@ -33,14 +33,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    border: none; 
+    border: none;
   }
 }
 
 
-
 .carousel-inner img {
   object-fit: cover;
-  height: 50rem; 
+  height: 50rem;
   width: 100%;
 }

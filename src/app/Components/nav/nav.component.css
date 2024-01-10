@@ -1,33 +1,33 @@
 body {
-    padding-top: 56px; /* Adjusted for fixed navbar height */
-  }
+  padding-top: 56px; /* Adjusted for fixed navbar height */
+}
 
-  header {
-    background-color: #343a40;
-    color: #ffffff;
-  }
+header {
+  background-color: #343a40;
+  color: #ffffff;
+}
 
-  h1 {
-    font-size: 1.5rem;
-  }
+h1 {
+  font-size: 1.5rem;
+}
 
-  .navbar {
-    padding: 10px 0;
-  }
+.navbar {
+  padding: 10px 0;
+}
 
-  .nav-button {
-    margin-left: 10px;
-  }
+.nav-button {
+  margin-left: 10px;
+}
 
-  .nav-button a {
-    color: #ffffff;
-  }
+.nav-button a {
+  color: #ffffff;
+}
 
-  .nav-button a:hover,
-  .nav-button a:active {
-    background-color: #28a745;
-  }
+.nav-button a:hover,
+.nav-button a:active {
+  background-color: #28a745;
+}
 
-  .rounded-border {
-    border-radius: 20px;
-  }
+.rounded-border {
+  border-radius: 20px;
+}

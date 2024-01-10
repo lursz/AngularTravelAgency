@@ -1,11 +1,18 @@
-import { HttpClient } from '@angular/common/http';
-import { EventEmitter, Injectable, inject } from '@angular/core';
-import { Trip } from '../Components/trip/trip_interface';
-import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
-import {collection, deleteDoc, doc, Firestore, getDocs, setDoc, updateDoc, arrayUnion, increment} from "@angular/fire/firestore";
-import { from } from 'rxjs';
-import { RatingState } from './trip-counting.service';
-import { Comment } from './trip-counting.service';
+import {EventEmitter, inject, Injectable} from '@angular/core';
+import {Trip} from '../Components/trip/trip_interface';
+import {
+  arrayUnion,
+  collection,
+  deleteDoc,
+  doc,
+  Firestore,
+  getDocs,
+  increment,
+  setDoc,
+  updateDoc
+} from "@angular/fire/firestore";
+import {from} from 'rxjs';
+import {Comment, RatingState} from './trip-counting.service';
 
 
 @Injectable({
@@ -20,18 +27,18 @@ export class TripImporterService {
 
   constructor() {
     from(getDocs(collection(this.firestore, 'trips'))).subscribe((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        this.trips.push(doc.data() as Trip);
-        this.eventEmitter.emit();
-      
-      });
-    }
+        querySnapshot.forEach((doc) => {
+          this.trips.push(doc.data() as Trip);
+          this.eventEmitter.emit();
+
+        });
+      }
     );
     from(getDocs(collection(this.firestore, 'rating'))).subscribe((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        this.ratings.set(Number(doc.id), doc.data() as RatingState);
-      });
-    }
+        querySnapshot.forEach((doc) => {
+          this.ratings.set(Number(doc.id), doc.data() as RatingState);
+        });
+      }
     );
   }
 
@@ -44,20 +51,19 @@ export class TripImporterService {
   }
 
 
- addComment(tripId: number, comment: Comment) {
-  const ratingRef = doc(this.firestore, 'rating', tripId.toString());
-  const dataToSend = {"author": comment.author, "content": comment.content, "date": comment.date};
-  updateDoc(ratingRef, {
-    comments: arrayUnion(dataToSend)
-  });
+  addComment(tripId: number, comment: Comment) {
+    const ratingRef = doc(this.firestore, 'rating', tripId.toString());
+    const dataToSend = {"author": comment.author, "content": comment.content, "date": comment.date};
+    updateDoc(ratingRef, {
+      comments: arrayUnion(dataToSend)
+    });
   }
 
-  rateTrip(tripId: number, value: number){
+  rateTrip(tripId: number, value: number) {
     console.log("rating trip");
 
     console.log(value);
     const ratingRef = doc(this.firestore, 'rating', tripId.toString());
-    // increase ratingCount:number by one and add value to ratingSum: numbeer
     updateDoc(ratingRef, {
       ratingCount: increment(1),
       ratingSum: increment(value)

@@ -1,8 +1,8 @@
-import { NgForOf, NgIf } from '@angular/common';
-import { Filter, TripFilterService } from '../../Services/trip-filter.service';
-import { TripsDbService } from '../../Services/trips-db.service';
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {NgForOf, NgIf} from '@angular/common';
+import {Filter, TripFilterService} from '../../Services/trip-filter.service';
+import {TripsDbService} from '../../Services/trips-db.service';
+import {Component} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-trip-filter',
@@ -14,10 +14,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class TripFilterComponent {
   filter: Filter = new Filter('', [], '', '', 0, 0, []);
-  selectedCountries: {[key: string]: boolean} = {};
+  selectedCountries: { [key: string]: boolean } = {};
   selectedRatings: boolean[] = [false, false, false, false, false];
 
-  constructor(public tripsDbService: TripsDbService, public tripFilterService: TripFilterService) {}
+  constructor(public tripsDbService: TripsDbService, public tripFilterService: TripFilterService) {
+  }
 
 
   applyFilter() {

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PurchaseHistoryComponent } from './purchase-history.component';
+import {PurchaseHistoryComponent} from './purchase-history.component';
 
 describe('PurchaseHistoryComponent', () => {
   let component: PurchaseHistoryComponent;
@@ -10,8 +10,8 @@ describe('PurchaseHistoryComponent', () => {
     await TestBed.configureTestingModule({
       imports: [PurchaseHistoryComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(PurchaseHistoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TripFilterComponent } from './trip-filter.component';
+import {TripFilterComponent} from './trip-filter.component';
 
 describe('TripFilterComponent', () => {
   let component: TripFilterComponent;
@@ -10,8 +10,8 @@ describe('TripFilterComponent', () => {
     await TestBed.configureTestingModule({
       imports: [TripFilterComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(TripFilterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

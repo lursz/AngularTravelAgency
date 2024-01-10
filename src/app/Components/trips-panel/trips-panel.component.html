@@ -1,40 +1,42 @@
 <div class="container">
   <app-trips-counter></app-trips-counter>
   <div class="row">
-  <div class="col-9">
-    <app-trip-filter></app-trip-filter>
-  </div>
-  <div class="aside col-md-3">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="" *ngFor="let trip of cartService.items">
-          <div class="row">
-            <h5 class="card-title">{{ trip.name }}</h5>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Country: {{ trip.country }}</li>
-              <li class="list-group-item">Price: {{moneyService.chosenCurrency}} {{ trip.price *
-                (moneyService.exchangeRates.get(moneyService.chosenCurrency) ?? 1.0) | number: '1.2-2' }}</li>
-              <li class="list-group-item">Reserved: {{ TripsDB.getReservedCount(trip.id) }}</li>
-            </ul>
-          </div>
+    <div class="col-9">
+      <app-trip-filter></app-trip-filter>
+    </div>
+    <div class="aside col-md-3">
+      <div class="row">
+        <div class="col-md-12">
+          <div *ngFor="let trip of cartService.items" class="">
+            <div class="row">
+              <h5 class="card-title">{{ trip.name }}</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Country: {{ trip.country }}</li>
+                <li class="list-group-item">Price: {{ moneyService.chosenCurrency }} {{
+                    trip.price *
+                    (moneyService.exchangeRates.get(moneyService.chosenCurrency) ?? 1.0) | number: '1.2-2'
+                  }}
+                </li>
+                <li class="list-group-item">Reserved: {{ TripsDB.getReservedCount(trip.id) }}</li>
+              </ul>
+            </div>
 
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
   <div class="text-center">
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
   <div class="d-flex flex-wrap flex-row">
-    <div *ngFor="let trip of getTrips() | paginate: { itemsPerPage: 6, currentPage: p }; let i = index"
-      class="col-lg-4 col-md-6 mb-4 d-flex">
-      <app-trip [trip]="trip" [tripProperties]="TripsDB.safeGetMapValue(TripsDB.tripsMap, trip.id)" [tripRatings]="TripsDB.safeGetRatingMapValue(TripsDB.ratingMap, trip.id)"
-        (removeTripEvent)="TripsDB.removeTrip(i)"></app-trip>
+    <div *ngFor="let trip of Trips | paginate: { itemsPerPage: 6, currentPage: p }; let i = index"
+         class="col-lg-4 col-md-6 mb-4 d-flex">
+      <app-trip (removeTripEvent)="TripsDB.removeTrip(i)" [tripProperties]="TripsDB.safeGetMapValue(TripsDB.tripsMap, trip.id)"
+                [tripRatings]="TripsDB.safeGetRatingMapValue(TripsDB.ratingMap, trip.id)"
+                [trip]="trip"></app-trip>
     </div>
   </div>
-
-
 
 
 </div>

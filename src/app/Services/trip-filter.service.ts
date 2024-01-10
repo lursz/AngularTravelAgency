@@ -1,9 +1,7 @@
-import { MoneyService } from './money.service';
-import { EventEmitter, Injectable } from '@angular/core';
-import { Trip } from '../Components/trip/trip_interface';
-import { TripCountingService } from './trip-counting.service';
-import { TripsDbService } from './trips-db.service';
-import { filter } from 'rxjs';
+import {MoneyService} from './money.service';
+import {Injectable} from '@angular/core';
+import {TripCountingService} from './trip-counting.service';
+import {TripsDbService} from './trips-db.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +9,8 @@ import { filter } from 'rxjs';
 export class TripFilterService {
 
   constructor(public tripCountingService: TripCountingService,
-    private tripDbService: TripsDbService,
-    private moneyService: MoneyService) {
+              private tripDbService: TripsDbService,
+              private moneyService: MoneyService) {
   }
 
   resetFilter() {
@@ -41,7 +39,9 @@ export class TripFilterService {
     }
   }
 }
+
 export class Filter {
-  constructor(public name: string, public country: string[], public startDate: string, public endDate: string, public priceFrom: number, public priceTo: number, public rating: boolean[]) { }
+  constructor(public name: string, public country: string[], public startDate: string, public endDate: string, public priceFrom: number, public priceTo: number, public rating: boolean[]) {
+  }
 }
 

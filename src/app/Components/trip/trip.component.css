@@ -1,27 +1,28 @@
 .trip-img {
-    --size: 20rem;
-    width: var(--size);
-    height: var(--size);
-    object-fit: cover;
+  --size: 20rem;
+  width: var(--size);
+  height: var(--size);
+  object-fit: cover;
 }
 
 .cheapest-trip {
-    border: 2px solid lightgreen;
+  border: 2px solid lightgreen;
 }
 
 .most-expensive-trip {
-    border: 2px solid lightcoral;
+  border: 2px solid lightcoral;
 }
 
-.almost-full{
-    background-color: lightcoral;
+.almost-full {
+  background-color: lightcoral;
 }
-.full-width{
+
+.full-width {
   width: 100%;
 }
 
 .corner-button {
-  position:absolute;
+  position: absolute;
   top: 0.1rem;
   right: 0.1rem;
 
@@ -30,16 +31,16 @@
 
 /* Star rating */
 .star-rating {
-    font-size: 2rem;
-    cursor: pointer;
-  }
-  
-  .star-rating span {
-    margin: 0 2px;
-  }
+  font-size: 2rem;
+  cursor: pointer;
+}
 
-  .star-rating span.selected {
-    color: black;
-  }
+.star-rating span {
+  margin: 0 2px;
+}
+
+.star-rating span.selected {
+  color: black;
+}
 
 

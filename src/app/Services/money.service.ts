@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,8 @@ export class MoneyService {
     ["CHF", 0.92],
     ["PLN", 3.97],
   ])
-  constructor() { 
+
+  constructor() {
     this.chosenCurrency = this.possibleCurrencies[0];
   }
 }

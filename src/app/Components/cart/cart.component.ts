@@ -1,9 +1,8 @@
-import { TripsDbService } from './../../Services/trips-db.service';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule, NgIf } from '@angular/common';
-import { CartService } from '../../Services/cart.service';
-import { NgFor, NgForOf } from '@angular/common';
-import { MoneyService } from '../../Services/money.service';
+import {TripsDbService} from './../../Services/trips-db.service';
+import {Component} from '@angular/core';
+import {CommonModule, NgFor, NgForOf} from '@angular/common';
+import {CartService} from '../../Services/cart.service';
+import {MoneyService} from '../../Services/money.service';
 
 @Component({
   selector: 'app-cart',
@@ -13,6 +12,7 @@ import { MoneyService } from '../../Services/money.service';
   styleUrl: './cart.component.css'
 })
 export class CartComponent {
-  constructor(public cartService: CartService, public moneyService: MoneyService, public tripsDbService: TripsDbService){}
+  constructor(public cartService: CartService, public moneyService: MoneyService, public tripsDbService: TripsDbService) {
+  }
 
 }

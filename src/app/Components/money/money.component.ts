@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { MoneyService } from '../../Services/money.service';
-import { NgFor } from '@angular/common';
+import {Component} from '@angular/core';
+import {MoneyService} from '../../Services/money.service';
+import {NgFor} from '@angular/common';
 import {FormsModule} from "@angular/forms";
 
 @Component({
@@ -11,8 +11,10 @@ import {FormsModule} from "@angular/forms";
   styleUrl: './money.component.css'
 })
 export class MoneyComponent {
-  constructor(public moneyService: MoneyService) { }
   currentCurrency: string = this.moneyService.chosenCurrency;
+
+  constructor(public moneyService: MoneyService) {
+  }
 
   updateCurrency(currency: string) {
     this.moneyService.chosenCurrency = currency;

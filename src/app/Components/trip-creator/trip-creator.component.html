@@ -3,26 +3,26 @@
     <h2>Create a new trip!</h2>
     <div class="form-group">
       <label for="tripName">Trip Name</label>
-      <input name="name" type="text" class="form-control" id="tripName" placeholder="Trip Name" [(ngModel)]="trip.name">
+      <input [(ngModel)]="trip.name" class="form-control" id="tripName" name="name" placeholder="Trip Name" type="text">
 
       <label for="country">Country</label>
-      <input name="country" type="text" class="form-control" id="country" placeholder="Country"
-        [(ngModel)]="trip.country">
+      <input [(ngModel)]="trip.country" class="form-control" id="country" name="country" placeholder="Country"
+             type="text">
 
       <label for="tripDescription">Trip Description</label>
-      <textarea name="description" class="form-control" id="tripDescription" rows="3"
-        [(ngModel)]="trip.description"></textarea>
+      <textarea [(ngModel)]="trip.description" class="form-control" id="tripDescription" name="description"
+                rows="3"></textarea>
 
       <div class="row">
         <label for="price">Price</label>
         <div class="col-8">
-          <input name="price" type="number" class="form-control" id="price" placeholder="Price" min="0" step="0.01"
-            [(ngModel)]="price">
+          <input [(ngModel)]="price" class="form-control" id="price" min="0" name="price" placeholder="Price" step="0.01"
+                 type="number">
         </div>
         <div class="col-4 text-center">
-          <select name="currency" class="form-control" id="currency" [(ngModel)]="trip.currency">
+          <select [(ngModel)]="trip.currency" class="form-control" id="currency" name="currency">
             <option *ngFor="let currency of MoneyService.possibleCurrencies" [value]="currency">
-              {{currency}}
+              {{ currency }}
             </option>
           </select>
         </div>
@@ -31,42 +31,42 @@
         <div class="col-6">
           <label for="startDate">Start Date</label>
           <div>
-            <input name="startDate" type="date" class="form-control" id="startDate" placeholder="Start Date"
-              [(ngModel)]="trip.start_date">
+            <input [(ngModel)]="trip.start_date" class="form-control" id="startDate" name="startDate" placeholder="Start Date"
+                   type="date">
           </div>
         </div>
         <div class="col-6">
 
           <label for="endDate">End Date</label>
           <div>
-            <input name="endDate" type="date" class="form-control" id="endDate" placeholder="End Date"
-              [(ngModel)]="trip.end_date">
+            <input [(ngModel)]="trip.end_date" class="form-control" id="endDate" name="endDate" placeholder="End Date"
+                   type="date">
           </div>
         </div>
       </div>
       <div class="row">
         <label for="maxPeople">Maximum Count of Participants</label>
         <div>
-          <input name="maxParticipants" type="number" class="form-control" id="maxPeople"
-            placeholder="Maximum Count of Participants" min="0" step="1" [(ngModel)]="trip.max_participants">
+          <input [(ngModel)]="trip.max_participants" class="form-control" id="maxPeople" min="0"
+                 name="maxParticipants" placeholder="Maximum Count of Participants" step="1" type="number">
         </div>
       </div>
       <div class="row">
         <label for="image-url">Image URL</label>
         <div>
-          <input name="image" type="text" class="form-control" id="image-url" placeholder="Image URL"
-            [(ngModel)]="trip.picture[0]">
+          <input [(ngModel)]="trip.picture[0]" class="form-control" id="image-url" name="image" placeholder="Image URL"
+                 type="text">
         </div>
       </div>
       <div class="row">
         <label for="map-url">Map URL</label>
         <div>
-          <input name="map" type="text" class="form-control" id="map-url" placeholder="Map URL" [(ngModel)]="trip.map">
+          <input [(ngModel)]="trip.map" class="form-control" id="map-url" name="map" placeholder="Map URL" type="text">
         </div>
       </div>
 
       <div class="row p-2">
-        <button type="submit" class="btn btn-dark" (click)="createTrip()">Create Trip</button>
+        <button (click)="createTrip()" class="btn btn-dark" type="submit">Create Trip</button>
       </div>
     </div>
   </form>

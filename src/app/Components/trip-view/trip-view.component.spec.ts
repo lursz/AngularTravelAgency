@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TripViewComponent } from './trip-view.component';
+import {TripViewComponent} from './trip-view.component';
 
 describe('TripViewComponent', () => {
   let component: TripViewComponent;
@@ -10,8 +10,8 @@ describe('TripViewComponent', () => {
     await TestBed.configureTestingModule({
       imports: [TripViewComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(TripViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
