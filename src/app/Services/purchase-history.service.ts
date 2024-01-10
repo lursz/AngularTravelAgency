@@ -9,7 +9,6 @@ export class PurchaseHistoryService {
 
   addToHistory(trip: Trip) {
     this.items.push(trip);
-    console.log(this.items);
   }
 
 

@@ -48,6 +48,8 @@ export class TripsDbService {
     }
 
     rateTrip(tripId: number, rating: number) {
+
+        this.service.rateTrip(tripId, rating); //firebase
         this.safeGetRatingMapValue(this.ratingMap, tripId).ratingSum += rating;
         this.safeGetRatingMapValue(this.ratingMap, tripId).ratingCount++;
     }

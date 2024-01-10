@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, inject } from '@angular/core';
 import { Trip } from '../Components/trip/trip_interface';
 import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
-import {collection, deleteDoc, doc, Firestore, getDocs, setDoc, updateDoc, arrayUnion} from "@angular/fire/firestore";
+import {collection, deleteDoc, doc, Firestore, getDocs, setDoc, updateDoc, arrayUnion, increment} from "@angular/fire/firestore";
 import { from } from 'rxjs';
 import { RatingState } from './trip-counting.service';
 import { Comment } from './trip-counting.service';
@@ -50,7 +50,18 @@ export class TripImporterService {
   updateDoc(ratingRef, {
     comments: arrayUnion(dataToSend)
   });
+  }
 
+  rateTrip(tripId: number, value: number){
+    console.log("rating trip");
+
+    console.log(value);
+    const ratingRef = doc(this.firestore, 'rating', tripId.toString());
+    // increase ratingCount:number by one and add value to ratingSum: numbeer
+    updateDoc(ratingRef, {
+      ratingCount: increment(1),
+      ratingSum: increment(value)
+    });
   }
 
 

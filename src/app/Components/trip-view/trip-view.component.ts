@@ -7,13 +7,13 @@ import { MoneyService } from '../../Services/money.service';
 import { RatingState, TripCountingService, TripCountingState } from '../../Services/trip-counting.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Comment } from '../../Services/trip-counting.service';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 
 @Component({
-    selector: 'app-trip-view',
-    standalone: true,
-    templateUrl: './trip-view.component.html',
-    styleUrl: './trip-view.component.css',
+  selector: 'app-trip-view',
+  standalone: true,
+  templateUrl: './trip-view.component.html',
+  styleUrl: './trip-view.component.css',
   imports: [CommonModule, FormsModule, NgFor, NgForOf]
 })
 export class TripViewComponent {
@@ -25,6 +25,21 @@ export class TripViewComponent {
   rating: number = 0;
   newComment: Comment = new Comment('', '', '');
 
+  get Comments(): Comment[] {
+    let tripProp = this.tripsDbService.safeGetRatingMapValue(this.tripsDbService.ratingMap, this.trip.id);
+    return tripProp.comments;
+  }
+
+  get Rating(): number {
+    let tripProp = this.tripsDbService.safeGetRatingMapValue(this.tripsDbService.ratingMap, this.trip.id);
+    if (tripProp.ratingCount == 0)
+      return 0;
+    return tripProp.ratingSum / tripProp.ratingCount;
+  }
+
+  get mapUrl(): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.trip.map);
+  }
 
 
   addComment() {
@@ -33,18 +48,8 @@ export class TripViewComponent {
     alert('Comment added!');
   }
 
-  getComments(): Comment[] {
-    let tripProp = this.tripsDbService.safeGetRatingMapValue(this.tripsDbService.ratingMap, this.trip.id);
-    return tripProp.comments;
-  }
-
   rateTrip(value: number) {
     this.rating = value;
     this.tripsDbService.rateTrip(this.trip.id, this.rating);
   }
-
-  get mapUrl(): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.trip.map);
-  }
-
 }

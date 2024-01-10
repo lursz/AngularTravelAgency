@@ -1,7 +1,7 @@
 <div>
     <div class="container card flex-fill">
         <!-- Img -->
-        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div id="carouselExampleAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div *ngFor="let image of trip.picture" class="carousel-item" [ngClass]="{'active': image === trip.picture[0]}">
                     <img [src]="image" class="d-block w-100" alt="...">
@@ -49,6 +49,12 @@
             </div>
         </div>
 
+        <div class="row mt-4">
+            <div class="col-md-12 text-center">
+                <p>Avg rating: {{ Rating | number: '1.2-2' }}</p>
+            </div>
+
+        </div>
 
         <!-- Rate -->
         <div class="p-2 col-12  text-center">
@@ -64,7 +70,7 @@
         <!-- Comments -->
         <div class="comments">
             <h2>Comments</h2>
-            <div *ngFor="let comment of getComments()" class="comment">
+            <div *ngFor="let comment of Comments" class="comment">
                 <p><b>{{comment.author}}</b></p>
                 <p>{{comment.content}}</p>
             </div>
