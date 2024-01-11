@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 import {MoneyComponent} from "../money/money.component";
+import { TripCountingService } from '../../Services/trip-counting.service';
 
 
 @Component({
@@ -11,5 +12,7 @@ import {MoneyComponent} from "../money/money.component";
   imports: [RouterLink, RouterLinkActive, MoneyComponent]
 })
 export class NavComponent {
+
+  constructor(public tripCountingService: TripCountingService) {}
 
 }

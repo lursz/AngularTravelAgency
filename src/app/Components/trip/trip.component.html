@@ -3,13 +3,12 @@
        class="container card flex-fill">
     <button (click)="removeTrip()" class="btn btn-danger corner-button">X</button>
     <!-- Img -->
-    <div class="row">
+
       <div class="col-md-12 text-center">
         <a activeRouterLink="active" routerLink="/trip-panel/{{trip.id}}">
           <img [src]="trip.picture[0]" alt="trip image" class="trip-img rounded-circle img-fluid">
         </a>
       </div>
-    </div>
 
     <!-- Info -->
     <div class="row mt-4">

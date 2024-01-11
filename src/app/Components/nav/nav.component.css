@@ -4,30 +4,11 @@ body {
 
 header {
   background-color: #343a40;
-  color: #ffffff;
+  color: white;
 }
 
 h1 {
   font-size: 1.5rem;
 }
 
-.navbar {
-  padding: 10px 0;
-}
 
-.nav-button {
-  margin-left: 10px;
-}
-
-.nav-button a {
-  color: #ffffff;
-}
-
-.nav-button a:hover,
-.nav-button a:active {
-  background-color: #28a745;
-}
-
-.rounded-border {
-  border-radius: 20px;
-}
