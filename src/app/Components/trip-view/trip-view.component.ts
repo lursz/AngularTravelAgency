@@ -17,8 +17,8 @@ import {FormsModule} from "@angular/forms";
 })
 export class TripViewComponent {
   trip: Trip = this.tripsDbService.trips[this.route.snapshot.params['id']];
-  tripProperties: TripCountingState = this.tripsDbService.safeGetMapValue(this.tripsDbService.tripsMap, this.route.snapshot.params['id']);
-  tripRatings: RatingState = this.tripsDbService.safeGetRatingMapValue(this.tripsDbService.ratingMap, this.route.snapshot.params['id']);
+  tripProperties: TripCountingState = this.tripsDbService.getTripsMap(this.route.snapshot.params['id']);
+  tripRatings: RatingState = this.tripsDbService.getRatingsMap(this.route.snapshot.params['id']);
   rating: number = 0;
   newComment: Comment = new Comment('', '', '');
 
@@ -26,12 +26,12 @@ export class TripViewComponent {
   }
 
   get Comments(): Comment[] {
-    let tripProp = this.tripsDbService.safeGetRatingMapValue(this.tripsDbService.ratingMap, this.trip.id);
+    let tripProp = this.tripsDbService.getRatingsMap(this.trip.id);
     return tripProp.comments;
   }
 
   get Rating(): number {
-    let tripProp = this.tripsDbService.safeGetRatingMapValue(this.tripsDbService.ratingMap, this.trip.id);
+    let tripProp = this.tripsDbService.getRatingsMap(this.trip.id);
     if (tripProp.ratingCount == 0)
       return 0;
     return tripProp.ratingSum / tripProp.ratingCount;

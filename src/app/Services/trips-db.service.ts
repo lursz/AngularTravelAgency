@@ -21,15 +21,15 @@ export class TripsDbService {
     this.init(service);
   }
 
-  safeGetMapValue(Map: Map<number, TripCountingState>, key: number): TripCountingState {
-    let value = Map.get(key);
+  getTripsMap(key: number): TripCountingState {
+    let value = this.tripsMap.get(key);
     if (value)
       return value;
     return new TripCountingState(0, undefined, undefined);
   }
 
-  safeGetRatingMapValue(Map: Map<number, RatingState>, key: number): RatingState {
-    let value = Map.get(key);
+  getRatingsMap(key: number): RatingState {
+    let value = this.ratingMap.get(key);
     if (value)
       return value;
     return new RatingState(0, 0, []);
@@ -50,13 +50,13 @@ export class TripsDbService {
   rateTrip(tripId: number, rating: number) {
 
     this.service.rateTrip(tripId, rating); //firebase
-    this.safeGetRatingMapValue(this.ratingMap, tripId).ratingSum += rating;
-    this.safeGetRatingMapValue(this.ratingMap, tripId).ratingCount++;
+    this.getRatingsMap(tripId).ratingSum += rating;
+    this.getRatingsMap(tripId).ratingCount++;
   }
 
   addComment(tripId: number, comment: Comment) {
     this.service.addComment(tripId, comment); //firebase
-    this.safeGetRatingMapValue(this.ratingMap, tripId).comments.push(comment);
+    this.getRatingsMap(tripId).comments.push(comment);
   }
 
   loadPossibleCountries() {
@@ -89,13 +89,13 @@ export class TripsDbService {
     let maxPrice = 0;
     let maxPriceIndex = 0;
     for (let i = 0; i < this.trips.length; i++) {
-      this.safeGetMapValue(this.tripsMap, i).highestPrice = false;
+      this.getTripsMap(i).highestPrice = false;
       if (this.trips[i].price > maxPrice) {
         maxPrice = this.trips[i].price;
         maxPriceIndex = i;
       }
     }
-    this.safeGetMapValue(this.tripsMap, maxPriceIndex).highestPrice = true;
+    this.getTripsMap(maxPriceIndex).highestPrice = true;
     return maxPriceIndex;
   }
 
@@ -103,25 +103,25 @@ export class TripsDbService {
     let minPrice = 0;
     let minPriceIndex = 0;
     for (let i = 0; i < this.trips.length; i++) {
-      this.safeGetMapValue(this.tripsMap, i).lowestPrice = false;
+      this.getTripsMap(i).lowestPrice = false;
       if (this.trips[i].price < minPrice) {
         minPrice = this.trips[i].price;
         minPriceIndex = i;
       }
     }
-    this.safeGetMapValue(this.tripsMap, minPriceIndex).lowestPrice = true;
+    this.getTripsMap(minPriceIndex).lowestPrice = true;
     return minPriceIndex;
   }
 
   getReservedCount(tripId: number): number {
-    return this.safeGetMapValue(this.tripsMap, tripId).reservedCount;
+    return this.getTripsMap(tripId).reservedCount;
   }
 
   incrementReservedCount(tripId: number) {
-    this.safeGetMapValue(this.tripsMap, tripId).reservedCount++;
+    this.getTripsMap(tripId).reservedCount++;
   }
 
   decrementReservedCount(tripId: number) {
-    this.safeGetMapValue(this.tripsMap, tripId).reservedCount--;
+    this.getTripsMap(tripId).reservedCount--;
   }
 }

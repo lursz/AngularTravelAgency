@@ -23,7 +23,7 @@ export class TripsPanelComponent {
   }
 
   get Trips(): Trip[] {
-    return this.TripsDB.trips.filter(trip => this.TripsDB.safeGetMapValue(this.TripsDB.tripsMap, trip.id).display);
+    return this.TripsDB.trips.filter(trip => this.TripsDB.getTripsMap(trip.id).display);
 
   }
 

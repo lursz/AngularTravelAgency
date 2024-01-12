@@ -36,7 +36,7 @@ export class CartService {
   calculateTotalCost() {
     this.totalCost = 0;
     this.items.forEach(trip => {
-      this.totalCost += trip.price * this.tripsDbService.safeGetMapValue(this.tripsDbService.tripsMap, trip.id).reservedCount;
+      this.totalCost += trip.price * this.tripsDbService.getTripsMap(trip.id).reservedCount;
     });
   }
 }
