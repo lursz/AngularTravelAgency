@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Trip} from '../Components/trip/trip_interface';
 import {Comment, RatingState, TripCountingState} from './trip-counting.service';
 import {TripImporterService} from './trip-importer.service';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +14,13 @@ export class TripsDbService {
   service: TripImporterService;
   possibleCountries: string[] = [];
 
-  constructor(service: TripImporterService) {
+  constructor(service: TripImporterService, public authService: AuthService) {
     this.service = service;
     this.service.eventEmitter.subscribe(() => {
       this.init(service);
     });
     this.init(service);
+    authService.signUp("uga@gmial.com", "123456");
   }
 
   getTripsMap(key: number): TripCountingState {

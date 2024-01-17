@@ -1,6 +1,7 @@
 import {ApplicationConfig, importProvidersFrom} from '@angular/core';
 import {provideRouter} from '@angular/router';
-
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { getAuth, provideAuth } from '@angular/fire/auth';
 
 import {routes} from './app.routes';
 import {provideHttpClient} from '@angular/common/http';
@@ -17,5 +18,5 @@ export const appConfig: ApplicationConfig = {
     "authDomain": "travelagency-fa39e.firebaseapp.com",
     "messagingSenderId": "730982599607",
     "measurementId": "G-KS4Q4C02F3"
-  }))), importProvidersFrom(provideFirestore(() => getFirestore()))]
+  }))), importProvidersFrom(provideFirestore(() => getFirestore())), importProvidersFrom(provideAuth(() => getAuth()))],
 };

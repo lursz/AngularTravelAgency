@@ -26,7 +26,7 @@ export const routes: Routes = [
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    // AngularFirestoreModule
   ]
 })
 export class AppModule {
