@@ -1,5 +1,5 @@
 <select [(ngModel)]="moneyService.chosenCurrency" aria-label=".form-select-lg example"
-        class="form-select form-select-lg">
+        class="form-select form-select-md" data-bs-theme="dark">
   <option selected>{{ moneyService.chosenCurrency }}</option>
   <option *ngFor="let currency of moneyService.possibleCurrencies"
           [class.d-none]="currency == moneyService.chosenCurrency">

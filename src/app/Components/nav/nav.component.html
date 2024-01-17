@@ -1,36 +1,40 @@
-<header class="container-fluid">
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-      <h1 class="navbar-brand">Travel Agency</h1>
-      <div class="collapse navbar-collapse justify-content-end">
-        <ul class="navbar-nav ">
-          <li class="nav-item text-center">
-            <a class="btn btn-dark" routerLink="/" routerLinkActive="true">Home</a>
-          </li>
-          <li class="nav-item text-center">
-            <a class="btn btn-dark" routerLink="/trip-panel" routerLinkActive="true">Trips</a>
-          </li>
-          <li class="nav-item text-center">
-            <a class="btn btn-dark" routerLink="/creator" routerLinkActive="true">Creator</a>
-          </li>
-          <li class="nav-item text-center">
-            <a class="btn btn-dark" routerLink="/history" routerLinkActive="true">History</a>
-          </li>
-          <li class="nav-item text-center">
-            <a class="btn btn-dark" routerLink="/cart" routerLinkActive="true">Cart
-              <span class="badge rounded-pill bg-danger"> <!--translate-middle -->
-                {{tripCountingService.totalReservedTripsCounter}}
-              </span>
-            </a>
-          </li>
-          <li class="nav-item text-center">
-            <div class="nav-button rounded-border">
-              <!-- Currency here -->
-              <app-money></app-money>
-            </div>
-          </li>
-        </ul>
-      </div>
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Travel Agency</a>
+    <!-- Mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item text-center">
+          <a class="nav-link" routerLink="/" routerLinkActive="true">Home</a>
+        </li>
+        <li class="nav-item text-center">
+          <a class="nav-link" routerLink="/trip-panel" routerLinkActive="true">Trips</a>
+        </li>
+        <li class="nav-item text-center">
+          <a class="nav-link" routerLink="/creator" routerLinkActive="true">Creator</a>
+        </li>
+        <li class="nav-item text-center">
+          <a class="nav-link" routerLink="/history" routerLinkActive="true">History</a>
+        </li>
+        <li class="nav-item text-center">
+          <a class="nav-link" routerLink="/cart" routerLinkActive="true">Cart
+            <span class="badge rounded-pill bg-danger"> <!--translate-middle -->
+              {{tripCountingService.totalReservedTripsCounter}}
+            </span>
+          </a>
+        </li>
+        <!-- Currency here -->
+        <li class="nav-item text-center">
+          <div class="nav-button rounded-border">
+            <app-money></app-money>
+          </div>
+        </li>
+
+      </ul>
     </div>
-  </nav>
-</header>
+  </div>
+</nav>

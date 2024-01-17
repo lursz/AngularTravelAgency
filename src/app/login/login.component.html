@@ -1,0 +1,8 @@
+<input placeholder="email" [(ngModel)]="credentials.email">
+<input placeholder="password" [(ngModel)]="credentials.password">
+<div>
+    <button (click)="login()">Login</button>
+    <button (click)="register()">Register</button>
+</div>
+<h3 style="color: green;">{{ registerInfo }}</h3>
+<p>{{ credentials | json }}</p>

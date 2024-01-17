@@ -60,9 +60,6 @@ export class TripImporterService {
   }
 
   rateTrip(tripId: number, value: number) {
-    console.log("rating trip");
-
-    console.log(value);
     const ratingRef = doc(this.firestore, 'rating', tripId.toString());
     updateDoc(ratingRef, {
       ratingCount: increment(1),

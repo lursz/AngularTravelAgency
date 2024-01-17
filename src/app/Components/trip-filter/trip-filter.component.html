@@ -37,14 +37,11 @@
       <input [(ngModel)]="filter.priceFrom" class="form-control" id="priceFrom" name="priceFrom" type="number">
     </div>
     <div class="col-6">
-      <label for="priceTo">Price To:</label>
+      <label for="priceTo">Price To: </label>
       <input [(ngModel)]="filter.priceTo" class="form-control" id="priceTo" name="priceTo" type="number">
     </div>
   </div>
-  <!-- <div>
-    <label for="rating">Rating:</label>
-    <input class="form-control" type="number" id="rating" name="rating" [(ngModel)]="filter.rating">
-  </div> -->
+
   <div class="row p-2">
     <button (click)="applyFilter()" class="btn btn-dark col-10" type="button">Filter</button>
     <button (click)="resetFilter()" class="btn btn-dark col-2" type="button">Reset</button>
