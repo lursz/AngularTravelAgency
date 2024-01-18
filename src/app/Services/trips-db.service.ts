@@ -125,4 +125,14 @@ export class TripsDbService {
   decrementReservedCount(tripId: number) {
     this.getTripsMap(tripId).reservedCount--;
   }
+
+  getMinPrice(): number {
+    let tempTrip = this.getCheapestTrip();
+    return this.trips[tempTrip].price;
+  }
+
+  getMaxPrice(): number {
+    let tempTrip = this.getMostExpensiveTrip();
+    return this.trips[tempTrip].price;
+  }
 }

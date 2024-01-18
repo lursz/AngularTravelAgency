@@ -34,11 +34,11 @@
   <div class="row">
     <div class="col-6">
       <label for="priceFrom">Price From:</label>
-      <input [(ngModel)]="filter.priceFrom" class="form-control" id="priceFrom" name="priceFrom" type="number">
+      <input [(ngModel)]="filter.priceFrom" class="form-control" id="priceFrom" name="priceFrom" type="number" value="{{tripsDbService.getMinPrice()}}" min="{{tripsDbService.getMinPrice()}}" max="{{tripsDbService.getMaxPrice()}}">
     </div>
     <div class="col-6">
       <label for="priceTo">Price To: </label>
-      <input [(ngModel)]="filter.priceTo" class="form-control" id="priceTo" name="priceTo" type="number">
+      <input [(ngModel)]="filter.priceTo" class="form-control" id="priceTo" name="priceTo" type="number" value="{{tripsDbService.getMaxPrice()}}" min="{{tripsDbService.getMinPrice()}}" max="{{tripsDbService.getMaxPrice()}}">
     </div>
   </div>
 

@@ -28,6 +28,14 @@ export class CartService {
         this.purchaseHistoryService.addToHistory(trip);
       }
     );
+    this.items.forEach(trip => {
+      const selectedTrip = this.tripsDbService.trips.find(t => t.id == trip.id);
+      if (selectedTrip) {
+        selectedTrip.max_participants -= this.tripsDbService.getTripsMap(trip.id).reservedCount;
+        this.tripsDbService.getTripsMap(trip.id).reservedCount = 0;
+      }
+    });
+
     this.items = [];
     this.calculateTotalCost();
   }

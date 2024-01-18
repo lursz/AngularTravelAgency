@@ -1,0 +1,20 @@
+<select #input_persistence class="form-select w-50 me-3 d-inline-block" (change)="true">
+    <option selected disabled value="-1">
+        <i>
+            Persistence:
+        </i>
+    </option>
+    <option value="local">
+        Always
+    </option>
+    <option value="session">
+        In session
+    </option>
+    <option value="none">
+        Forget
+    </option>
+</select>
+<button class="btn btn-primary ms-2" (click)="set_persistance(input_persistence.value)"
+    [disabled]="input_persistence.value === '-1'">
+    Save
+</button>

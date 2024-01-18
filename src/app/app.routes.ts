@@ -12,15 +12,17 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import { AuthComponent } from './Components/auth/auth.component';
 import { authGuard } from './auth.guard';
+import { ProfileComponent } from './Components/profile/profile.component';
 
 export const routes: Routes = [
-  {path: '', component: HomeComponent, canActivate: [authGuard]},
-  {path: 'trip-panel', component: TripsPanelComponent, canActivate: [authGuard]},
-  {path: 'trip-panel/:id', component: TripViewComponent, canActivate: [authGuard]},
+  {path: '', component: HomeComponent},
+  {path: 'trip-panel', component: TripsPanelComponent},
+  {path: 'trip-panel/:id', component: TripViewComponent},
   {path: 'creator', component: TripCreatorComponent, canActivate: [authGuard]},
   {path: 'cart', component: CartComponent, canActivate: [authGuard]},
   {path: 'history', component: PurchaseHistoryComponent, canActivate: [authGuard]},
-  {path: 'auth', component: AuthComponent, canActivate: [authGuard]},
+  {path: 'profile', component: ProfileComponent, canActivate: [authGuard]},
+  {path: 'auth', component: AuthComponent},
   {path: '**', redirectTo: ''}
 ];
 
@@ -47,3 +49,8 @@ export class AppModule {
 //   ]
 // })
 // export class AppRoutingModule { }
+
+
+// TODO
+// update most and least expensive
+// after buy trip, update trip list free reservations

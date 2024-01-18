@@ -1,118 +1,84 @@
-<!-- <div class="container mt-5">
-    <div class="row">
-        <div class="col-md-6">
-            <form>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" [(ngModel)]="email"
-                        placeholder="Enter your email">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" [(ngModel)]="password"
-                        placeholder="Enter your password">
-                </div>
-                <button type="button" class="btn btn-primary" (click)="onLogin()">Login</button>
-                <button type="button" class="btn btn-success" (click)="onRegister()">Register</button>
-                <button type="button" class="btn btn-danger" (click)="onLogout()">Logout</button>
-            </form>
-        </div>
-        <div class="cold-md-6">
-            <form>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" [(ngModel)]="email"
-                        placeholder="Enter your email">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" [(ngModel)]="password"
-                        placeholder="Enter your password">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Confirm password</label>
-                    <input type="password" class="form-control" id="password" [(ngModel)]="password"
-                        placeholder="Confirm your password">
-                </div>
-                <button type="button" class="btn btn-success" (click)="onRegister()">Register</button>
-            </form>
-
-        </div>
-    </div> -->
-
-
 <!-- LOGIN -->
-<h1>{{authService.isLoggedIn}}</h1>
-    <div class="container mt-5">
-        <div class="row">
-          <div class="col-md-6">
-            <form [formGroup]="authForm">
-              <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email">
-                <div *ngIf="authForm?.get('email')?.hasError('email') && !authForm?.get('email')?.hasError('required')">
-                  Invalid email address
-                </div>
-                <div *ngIf="authForm.get('email')?.hasError('required')">
-                  Email is required
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter your password">
-                <div *ngIf="authForm.get('password')?.hasError('minlength') && !authForm.get('password')?.hasError('required')">
-                  Password must be at least 6 characters long
-                </div>
-                <div *ngIf="authForm.get('password')?.hasError('required')">
-                  Password is required
-                </div>
-              </div>
-              <button type="button" class="btn btn-primary" (click)="onLogin()">Login</button>
-            </form>
+<!-- <h1>Are you logged: {{authService.isLoggedIn}}</h1> -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <form [formGroup]="authForm">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email">
+          <div *ngIf="authForm?.get('email')?.hasError('email') && !authForm?.get('email')?.hasError('required')">
+            Invalid email address
           </div>
-
-
-<!-- LOGOUT -->
-                   <div class="col-md-6">
-            <form [formGroup]="authForm">
-              <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email">
-                <div *ngIf="authForm?.get('email')?.hasError('email') && !authForm?.get('email')?.hasError('required')">
-                  Invalid email address
-                </div>
-                <div *ngIf="authForm.get('email')?.hasError('required')">
-                  Email is required
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter your password">
-                <div *ngIf="authForm.get('password')?.hasError('minlength') && !authForm.get('password')?.hasError('required')">
-                  Password must be at least 6 characters long
-                </div>
-                <div *ngIf="authForm.get('password')?.hasError('required')">
-                  Password is required
-                </div>
-              </div>
-              <div class="mb3">
-                <label for="password" class="form-label">Confirm password</label>
-                <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm your password">
-                <div *ngIf="authForm.get('password')?.hasError('minlength') && !authForm.get('password')?.hasError('required')">
-                  Password must be at least 6 characters long
-                </div>
-                <div *ngIf="authForm.get('password')?.hasError('required')">
-                  Password is required
-                </div>
-                
-              </div>
-              <!-- <button type="button" class="btn btn-primary" (click)="onLogin()">Login</button> -->
-              <button type="button" class="btn btn-success" (click)="onRegister()">Register</button>
-              <!-- <button type="button" class="btn btn-danger" (click)="Logout()">Logout</button> -->
-            </form>
+          <div *ngIf="authForm.get('email')?.hasError('required')">
+            Email is required
           </div>
         </div>
-      </div>
-      
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password"
+            placeholder="Enter your password">
+          <div
+            *ngIf="authForm.get('password')?.hasError('minlength') && !authForm.get('password')?.hasError('required')">
+            Password must be at least 6 characters long
+          </div>
+          <div *ngIf="authForm.get('password')?.hasError('required')">
+            Password is required
+          </div>
+        </div>
+        <div class="row">
+          <button type="button" class="btn btn-primary" (click)="onLogin()">Login</button>
+        </div>
+      </form>
+    </div>
 
-      <button type="button" class="btn btn-danger" (click)="onLogout()">Logout</button>
+
+    <!-- LOGOUT -->
+    <div class="col-md-6">
+      <form [formGroup]="authForm">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email">
+          <div *ngIf="authForm?.get('email')?.hasError('email') && !authForm?.get('email')?.hasError('required')">
+            Invalid email address
+          </div>
+          <div *ngIf="authForm.get('email')?.hasError('required')">
+            Email is required
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password"
+            placeholder="Enter your password">
+          <div
+            *ngIf="authForm.get('password')?.hasError('minlength') && !authForm.get('password')?.hasError('required')">
+            Password must be at least 6 characters long
+          </div>
+          <div *ngIf="authForm.get('password')?.hasError('required')">
+            Password is required
+          </div>
+        </div>
+        <div class="mb3">
+          <label for="password" class="form-label">Confirm password</label>
+          <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword"
+            placeholder="Confirm your password">
+          <div
+            *ngIf="authForm.get('password')?.hasError('minlength') && !authForm.get('password')?.hasError('required')">
+            Password must be at least 6 characters long
+          </div>
+          <div *ngIf="authForm.get('password')?.hasError('required')">
+            Password is required
+          </div>
+
+          <div class="row">
+
+            <button type="button" class="btn btn-success" (click)="onRegister()">Register</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- <button type="button" class="btn btn-danger" (click)="onLogout()">Logout</button> -->
