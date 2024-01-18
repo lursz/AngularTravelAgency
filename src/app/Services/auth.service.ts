@@ -18,13 +18,16 @@ export class AuthService {
       //handle user state changes here. Note, that user will be null if there is no currently logged in user.
       console.log(aUser);
     })
+  }
 
+  get isLoggedIn(): boolean {
+    return this.auth.currentUser !== null;
   }
 
   logOut(): void {
     signOut(this.auth).then(() => {
       // Sign-out successful.
-      console.log("success");
+      alert("Logged out");
     }).catch((error: FirebaseError) => {
       // An error happened.
       console.log(error);
@@ -36,7 +39,7 @@ export class AuthService {
     signInWithEmailAndPassword(this.auth, email, password).then((userCredential: UserCredential) => {
       // Signed in 
       const user = userCredential.user;
-      console.log("success", user);
+      alert("Login successful");
     }
     ).catch((error: FirebaseError) => {
       const errorCode = error.code;
@@ -49,7 +52,7 @@ export class AuthService {
     createUserWithEmailAndPassword(this.auth, email, password).then((userCredential: UserCredential) => {
       // Signed in 
       const user = userCredential.user;
-      console.log("success", user);
+      alert("Registration successful");
     }
     ).catch((error: FirebaseError) => {
       const errorCode = error.code;

@@ -14,13 +14,12 @@ export class TripsDbService {
   service: TripImporterService;
   possibleCountries: string[] = [];
 
-  constructor(service: TripImporterService, public authService: AuthService) {
+  constructor(service: TripImporterService) {
     this.service = service;
     this.service.eventEmitter.subscribe(() => {
       this.init(service);
     });
     this.init(service);
-    authService.signUp("uga@gmial.com", "123456");
   }
 
   getTripsMap(key: number): TripCountingState {

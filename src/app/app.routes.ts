@@ -10,6 +10,7 @@ import {environment} from '../environments/environment';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
+import { AuthComponent } from './Components/auth/auth.component';
 
 export const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +19,7 @@ export const routes: Routes = [
   {path: 'creator', component: TripCreatorComponent},
   {path: 'cart', component: CartComponent},
   {path: 'history', component: PurchaseHistoryComponent},
+  {path: 'auth', component: AuthComponent},
   {path: '**', redirectTo: ''}
 ];
 

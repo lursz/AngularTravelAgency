@@ -14,12 +14,20 @@
         <li class="nav-item text-center">
           <a class="nav-link" routerLink="/trip-panel" routerLinkActive="true">Trips</a>
         </li>
+
+        <div *ngIf="authService.isLoggedIn">
         <li class="nav-item text-center">
           <a class="nav-link" routerLink="/creator" routerLinkActive="true">Creator</a>
         </li>
+      </div>
+        
+        <div *ngIf="authService.isLoggedIn">
         <li class="nav-item text-center">
           <a class="nav-link" routerLink="/history" routerLinkActive="true">History</a>
         </li>
+        </div>
+
+        <div *ngIf="authService.isLoggedIn">
         <li class="nav-item text-center">
           <a class="nav-link" routerLink="/cart" routerLinkActive="true">Cart
             <span class="badge rounded-pill bg-danger"> <!--translate-middle -->
@@ -27,6 +35,23 @@
             </span>
           </a>
         </li>
+      </div>
+        <!-- <div *nfIf="authService.isLogged"> -->
+          <!-- <li class="nav-item text-center">
+            <a class="nav-link" routerLink="/auth" routerLinkActive="true">Login</a>
+          </li> -->
+        <!-- </div> -->
+        
+        <div *ngIf="authService.isLoggedIn; else elseBlock">
+          <li class="nav-item text-center">
+            <a class="nav-link" routerLink="/auth" routerLinkActive="true" (click)="authService.logOut()">Logout</a>
+          </li>
+        </div>
+        <ng-template #elseBlock>
+          <li class="nav-item text-center">
+            <a class="nav-link" routerLink="/auth" routerLinkActive="true">Login</a>
+          </li>
+        </ng-template>
         <!-- Currency here -->
         <li class="nav-item text-center">
           <div class="nav-button rounded-border">
