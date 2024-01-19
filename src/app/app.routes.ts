@@ -9,10 +9,9 @@ import {AngularFireModule} from '@angular/fire/compat';
 import {environment} from '../environments/environment';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
-import { AuthComponent } from './Components/auth/auth.component';
-import { authGuard } from './auth.guard';
-import { ProfileComponent } from './Components/profile/profile.component';
+import {AuthComponent} from './Components/auth/auth.component';
+import {authGuard} from './auth.guard';
+import {ProfileComponent} from './Components/profile/profile.component';
 
 export const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -36,21 +35,3 @@ export const routes: Routes = [
 })
 export class AppModule {
 }
-
-// @NgModule({
-//   imports: [
-//     RouterModule.forRoot(routes),
-//     AngularFireModule.initializeApp(environment.firebaseConfig),
-//     BrowserModule,
-//     // AngularFireDatabaseModule
-//   ],
-//   exports: [
-//     RouterModule
-//   ]
-// })
-// export class AppRoutingModule { }
-
-
-// TODO
-// update most and least expensive
-// after buy trip, update trip list free reservations

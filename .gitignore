@@ -47,7 +47,9 @@ Thumbs.db
 
 # Hidden Folders
 **/.angular
+.angular/
 .angular
+.angularold/
 
 # Firebase
 .firebase

@@ -2,6 +2,7 @@ import {PurchaseHistoryService} from './purchase-history.service';
 import {TripsDbService} from './trips-db.service';
 import {Injectable} from '@angular/core';
 import {Trip} from '../Components/trip/trip_interface';
+import {TripCountingService} from './trip-counting.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class CartService {
   items: Trip[] = [];
   totalCost: number = 0;
 
-  constructor(public tripsDbService: TripsDbService, public purchaseHistoryService: PurchaseHistoryService) {
+  constructor(public tripsDbService: TripsDbService, public purchaseHistoryService: PurchaseHistoryService, public tripCountingService: TripCountingService) {
   }
 
   addToCart(trip: Trip) {
@@ -38,6 +39,8 @@ export class CartService {
 
     this.items = [];
     this.calculateTotalCost();
+    this.tripCountingService.totalReservedTripsCounter = 0;
+
   }
 
 

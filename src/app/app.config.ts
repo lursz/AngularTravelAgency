@@ -1,7 +1,6 @@
 import {ApplicationConfig, importProvidersFrom} from '@angular/core';
 import {provideRouter} from '@angular/router';
-import { FIREBASE_OPTIONS } from '@angular/fire/compat';
-import { getAuth, provideAuth } from '@angular/fire/auth';
+import {getAuth, provideAuth} from '@angular/fire/auth';
 
 import {routes} from './app.routes';
 import {provideHttpClient} from '@angular/common/http';

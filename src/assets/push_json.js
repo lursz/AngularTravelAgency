@@ -9,7 +9,7 @@ admin.initializeApp({
   credential: admin.credential.cert("key.json")
 });
 
-const data1 = {
+const data = {
   "trips": [
     {
       "id": 0,
@@ -157,7 +157,7 @@ const data1 = {
   ]
 };
 
-const data = {
+const data1 = {
   "ratings": [
     {
       "trip_id": 0,
@@ -299,8 +299,8 @@ const data = {
 const promises = [];
 
 // Access the "trips" property directly
-data.ratings.forEach((trip, index) => {
-  promises.push(admin.firestore().collection('rating').doc(index.toString()).set(trip));
+data.trips.forEach((trip, index) => {
+  promises.push(admin.firestore().collection('trips').doc(index.toString()).set(trip));
 });
 
 Promise.all(promises)

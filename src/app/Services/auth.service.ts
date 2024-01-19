@@ -1,7 +1,15 @@
-import { Injectable, inject } from '@angular/core';
-import { FirebaseError } from '@angular/fire/app';
-import { Auth, UserCredential, User, user, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
-import { Subscription } from 'rxjs';
+import {inject, Injectable} from '@angular/core';
+import {FirebaseError} from '@angular/fire/app';
+import {
+  Auth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  user,
+  User,
+  UserCredential
+} from '@angular/fire/auth';
+import {Subscription} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +45,7 @@ export class AuthService {
 
   logIn(email: string, password: string): void {
     signInWithEmailAndPassword(this.auth, email, password).then((userCredential: UserCredential) => {
-      // Signed in 
+      // Signed in
       const user = userCredential.user;
       alert("Login successful");
     }
@@ -50,7 +58,7 @@ export class AuthService {
 
   signUp(email: string, password: string): void {
     createUserWithEmailAndPassword(this.auth, email, password).then((userCredential: UserCredential) => {
-      // Signed in 
+      // Signed in
       const user = userCredential.user;
       alert("Registration successful");
     }

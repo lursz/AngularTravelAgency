@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Trip} from '../Components/trip/trip_interface';
 import {Comment, RatingState, TripCountingState} from './trip-counting.service';
 import {TripImporterService} from './trip-importer.service';
-import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -79,8 +78,9 @@ export class TripsDbService {
   }
 
   removeTrip(tripId: number) {
+    this.trips = this.trips.filter(trip => trip.id !== tripId);
     this.service.removeTrip(this.trips[tripId]); //firebase
-    this.trips.splice(tripId, 1);
+    // this.trips.splice(tripId, 1);
     this.tripsMap.delete(tripId);
     this.getMostExpensiveTrip();
     this.getCheapestTrip();

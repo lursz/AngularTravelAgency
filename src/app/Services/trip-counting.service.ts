@@ -10,6 +10,10 @@ export class TripCountingService {
   constructor() {
   }
 
+  get totalReservedTripsCount() {
+    return this.totalReservedTripsCounter;
+  }
+
   incrementTotalReservedTripsCounter() {
     this.totalReservedTripsCounter++;
   }

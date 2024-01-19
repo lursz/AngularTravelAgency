@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { AuthenticationService } from '../../Services/authentication.service';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {AuthenticationService} from '../../Services/authentication.service';
+import {Router} from '@angular/router';
 import {FormsModule} from "@angular/forms";
 import {JsonPipe} from "@angular/common";
 

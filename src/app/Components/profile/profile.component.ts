@@ -1,8 +1,14 @@
-import { Component, inject } from '@angular/core';
-import { Auth } from '@angular/fire/auth';
-import { FirebaseError } from '@angular/fire/app';
+import {Component, inject} from '@angular/core';
+import {Auth} from '@angular/fire/auth';
+import {FirebaseError} from '@angular/fire/app';
 
-import { Persistence, browserLocalPersistence, browserSessionPersistence, inMemoryPersistence, setPersistence } from 'firebase/auth';
+import {
+  browserLocalPersistence,
+  browserSessionPersistence,
+  inMemoryPersistence,
+  Persistence,
+  setPersistence
+} from 'firebase/auth';
 
 @Component({
   selector: 'app-profile',

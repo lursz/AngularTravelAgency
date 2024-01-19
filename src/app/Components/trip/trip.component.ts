@@ -53,6 +53,6 @@ export class TripComponent {
   }
 
   removeTrip() {
-    this.removeTripEvent.emit();
+    this.removeTripEvent.emit(this.trip.id);
   }
 }
